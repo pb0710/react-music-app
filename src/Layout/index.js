@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import Header from './Header'
+import Content from './Content'
+import {Wrapper} from './style'
 
 export default function Layout() {
 	return (
-		<h1>Hello</h1>
+		<Wrapper>
+			<Header />
+			<Content />
+		</Wrapper>
 	)
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { StoreContext } from 'redux-react-hook'
 import { BrowserRouter } from 'react-router-dom'
+import { GlobalStyle } from 'common/globalStyle'
+import { StoreContext } from 'redux-react-hook'
 import store from 'Layout/store'
-import {GlobalStyle} from 'common/globalStyle'
 import Layout from 'Layout'
 
 const App = () => (

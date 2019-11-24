@@ -1,28 +1,38 @@
-import { all, fork, put, takeEvery, select } from 'redux-saga/effects'
+import { all, fork, put, takeEvery, takeLatest, delay, select,call } from 'redux-saga/effects'
+import * as api from 'api'
 
-// function* userLoginSaga() {
-//  const state = yield select()
-//  const { username, password } = state.login
-//  const payload = yield api.userLogin({ username, password })
-//  if (payload) {
-//    yield put({ type: 'LOGIN_SUCCESS' })
-//  } else {
-//    yield put({ type: 'LOGIN_FAIL' })
-//  }
-// }
+function* updateKeywordsSaga(keywords) {
+	yield delay(500)
+	yield searchSaga(keywords)
+}
 
-// // ------------------------watch------------------------------------------------------------
+function* searchSaga(keywords) {
+	if (keywords === '') return
+	const { result } = yield api.fetchSearchSuggest(keywords)
+	yield put({
+		type: 'SAVE_SEARCH_RESULT',
+		payload: result
+	})
+}
 
-// function* watchUsernameChange() {
-//  yield takeEvery("INPUT_USERNAME", changeUsernameSaga)
-// }
+// -------------------------------------watch--------------------------------------------------------
+
+function* updateKeywordsWatch() {
+	yield takeLatest("FETCH_SEARCH_RESULT", action => updateKeywordsSaga(action.payload))
+}
+
+function* selectHotSearchWatch() {
+	yield takeEvery("SELECT_HOT_SEARCH", action => searchSaga(action.payload))
+}
+
+function* searchWatch() {
+	yield takeEvery("SEARCH", action => searchSaga(action.payload))
+}
 
 export default function* () {
-  yield all([
-    // fork(watchUsernameChange),
-    // fork(watchPasswordChange),
-    // fork(watchUserLogin),
-    // fork(watchFetchListStatus),
-    // fork(watchFetchUserInfo)
+	yield all([
+		fork(updateKeywordsWatch),
+		fork(selectHotSearchWatch),
+  	fork(searchWatch)
   ])
 }
