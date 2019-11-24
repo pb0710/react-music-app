@@ -6,18 +6,21 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.div`
+	display: flex;
+	align-items: center;
 	width: 100%;
 	height: 30px;
 	background: #fafafa;
+	border-bottom: 1px solid #eee;
 	padding: 0 10px;
-	line-height: 30px;
+	font-size: 14px;
 `
 
 export const TagWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	padding: 5px;
+	padding: 5px 0;
 `
 
 export const Tag = styled.div`
@@ -33,6 +36,8 @@ export const Tag = styled.div`
 	padding: 0 10px;
 	font-size: 13px;
 	&:hover {
-		background: #eee;
+		background: #fafafa;
+		border: 1px solid pink;
+		color: pink;
 	}
 `

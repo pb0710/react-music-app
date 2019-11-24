@@ -6,5 +6,5 @@ export const Wrapper = styled.header `
 	border-bottom: 1px solid #eee;
 	position: fixed;
 	top: 0;
-	background: #eee;
+	background: #fff;
 `

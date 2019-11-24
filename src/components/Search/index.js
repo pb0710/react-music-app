@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Wrapper, Search, ResultWrapper, SortWrapper, Item, Title } from './style'
-import { Input } from 'antd'
+import { Wrapper, ResultWrapper } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import Suggest from './Suggest'
+import SearchInput from './SearchInput'
 import Hot from './Hot'
+import Suggest from './Suggest'
 
-export default function Header() {
+export default function Search() {
 	const { searchSuggest } = useMappedState(state => ({
 		searchSuggest: state.header.searchSuggest
 	}))
@@ -17,9 +17,34 @@ export default function Header() {
 	const [isFocus, setIsFocus] = useState(false)
 	const [isHover, setIsHover] = useState(false)
 
-	const isShowPannel = useMemo(() => {
-		return isFocus || isHover
-	})
+	const isShowPannel = useMemo(() => isFocus || isHover)
+
+	const handleFocus = () => {
+		setIsFocus(true)
+		setInputValue('')
+	}
+
+	const handleBlur = () => {
+		setIsFocus(false)
+		setInputValue('')
+	}
+
+	const handleMouseEnter = () => {
+		setIsHover(true)
+	}
+
+	const handleMouseLeave = () => {
+		console.log('leave')
+		setIsHover(false)
+	}
+
+	const handleClickTag = keywords => {
+		dispatch({
+			type: 'SELECT_HOT_SEARCH',
+			payload: keywords
+		})
+		setInputValue(keywords)
+	}
 
 	const handleInput = e => {
 		const value = e.currentTarget.value
@@ -30,48 +55,16 @@ export default function Header() {
 		})
 	}
 
-	const handleFocus = () => {
-		setIsFocus(true)
-		dispatch({
-			type: 'SHOW_SEARCH_RESULT'
-		})
-	}
-
-	const handleBlur = () => {
-		setIsFocus(false)
-	}
-
-	const handleMouseEnter = () => {
-		console.log('enter')
-		setIsHover(true)
-	}
-
-	const handleMouseLeave = () => {
-		setIsHover(false)
-	}
-
-	const handleClickTag = keywords => {
-		console.log('keywords', keywords)
-		dispatch({
-			type: 'SELECT_HOT_SEARCH',
-			payload: keywords
-		})
-		setInputValue(keywords)
-	}
-
 	return (
 		<Wrapper>
-			<Input.Search 
-				onInput={handleInput} 
-				onFocus={handleFocus} 
-				onBlur={handleBlur} 
-				value={inputValue} 
-				loading={inputValue === '' ? false : true}
-				placeholder="搜索..."
+			<SearchInput isFocus={isFocus} inputValue={inputValue}
+				handleInput={handleInput} 
+				handleFocus={handleFocus} 
+				handleBlur={handleBlur}
 			/>
 			{
 				isShowPannel
-				? <ResultWrapper onMouseEnter={handleMouseEnter}>
+				? <ResultWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 					{
 						inputValue === ''
 						? <Hot handleClickTag={handleClickTag} />
