@@ -6,11 +6,6 @@ import Hot from './Hot'
 import Suggest from './Suggest'
 
 export default function Search() {
-	const { searchSuggest } = useMappedState(state => ({
-		searchSuggest: state.header.searchSuggest
-	}))
-	const { order } = searchSuggest
-
 	const dispatch = useDispatch()
 
 	const [inputValue, setInputValue] = useState('')
@@ -34,7 +29,6 @@ export default function Search() {
 	}
 
 	const handleMouseLeave = () => {
-		console.log('leave')
 		setIsHover(false)
 	}
 
@@ -64,7 +58,7 @@ export default function Search() {
 			/>
 			{
 				isShowPannel
-				? <ResultWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+				? <ResultWrapper className="glass" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 					{
 						inputValue === ''
 						? <Hot handleClickTag={handleClickTag} />

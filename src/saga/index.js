@@ -2,7 +2,7 @@ import { all, fork, put, takeEvery, takeLatest, delay, select,call } from 'redux
 import * as api from 'api'
 
 function* updateKeywordsSaga(keywords) {
-	yield delay(500)
+	yield delay(200)
 	yield searchSaga(keywords)
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -30,14 +30,15 @@ export const Tag = styled.div`
 	align-items: center;
 	min-width: 60px;
 	height: 30px;
-	border: 1px solid #eee;
+	background: #fff;
+	border: 1px solid rgba(200, 200, 200, .4);
 	border-radius: 15px;
 	margin: 5px;
 	padding: 0 10px;
 	font-size: 13px;
 	&:hover {
-		background: #fafafa;
-		border: 1px solid pink;
-		color: pink;
+		background: #e6f7ff;
+		border: 1px solid #1890ff;
+		color: #1890ff;
 	}
 `

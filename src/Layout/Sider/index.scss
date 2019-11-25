@@ -1,0 +1,12 @@
+.sider-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: 100vh;
+	background: #fff;
+	position: fixed;
+	left: 0;
+	top: 0;
+	border-right: 1px solid #eee;
+	z-index: 99;
+}

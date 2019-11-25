@@ -2,18 +2,29 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	width: 100%;
-	height: 36px;
+	height: 30px;
 `
 
 export const Input = styled.input`
-	width: ${props => props.isFocus ? '300px' : '120px'};
+	${props => props.isFocus 
+		? `
+			width: 300px;
+			border: 1px solid #eee;
+			background: #fafafa;
+			text-align: left;
+		` 
+		: `
+			width: 200px;
+			background: #fff;
+			border: 1px solid #1890ff;
+			text-align: center
+		`
+	}
 	height: 30px;
 	padding: 0 10px;
 	outline: none;
-	border: 1px solid ${props => props.isFocus ? 'pink' : '#eee'};
 	border-radius: 15px;
 	font-size: 13px;
-	text-align: ${props => props.isFocus ? 'left' : 'center'};
 	-webkit-transition: all .4s;
 	-o-transition: all .4s;
 	transition: all .4s;

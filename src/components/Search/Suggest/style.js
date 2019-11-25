@@ -38,7 +38,8 @@ export const Item = styled.div`
 	white-space: nowrap;  
 	text-overflow: ellipsis; 
   overflow: hidden;
-  &:hover {
+  :hover {
   	background: #eee;
   }
 `
+
