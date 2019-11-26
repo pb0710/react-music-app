@@ -93,7 +93,7 @@ export default function Carousel(props) {
   ))
 
   const indicatorRender = () => (
-    <IndicatorWrapper className="index-wrapper">
+    <IndicatorWrapper>
       {
         position.map(item => 
           <Indicator 
@@ -114,7 +114,7 @@ export default function Carousel(props) {
   )
 
   return (
-    <Wrapper className="carousel-wrapper" onMouseEnter={() => changeScrollStatus(false)} onMouseLeave={() => changeScrollStatus(true)}>
+    <Wrapper onMouseEnter={() => changeScrollStatus(false)} onMouseLeave={() => changeScrollStatus(true)}>
       {bannerRender()}
       {btnRender()}
       {indicatorRender()}

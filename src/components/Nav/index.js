@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import './index.scss'
+import { Wrapper } from './style'
 import { Menu } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import routeMap from 'common/routeMap'
-const { Item } = Menu
 
 export default function Nav() {
 	const dispatch = useDispatch()
@@ -29,16 +28,16 @@ export default function Nav() {
 	}
 
 	return (
-		<Menu className="nav-wrapper" onClick={handleClick} selectedKeys={current} mode="horizontal">
+		<Wrapper onClick={handleClick} selectedKeys={current} mode="horizontal">
     	{
     		routeMap.map(item => 
-    			item.value === selected && item.child.map(sub => (
-    				<Item key={sub.value}>
-    					<Link to={`/page/${item.value}/${sub.value}`}>{sub.title}</Link>
-    				</Item>
+    			item.value === selected && item.child.map(child => (
+    				<Menu.Item key={child.value}>
+    					<Link to={`/page/${item.value}/${child.value}`}>{child.title}</Link>
+    				</Menu.Item>
     			))
     		)
     	}
-    </Menu>
+    </Wrapper>
 	)
 }

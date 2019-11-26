@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import { Wrapper, Pic, DescWrapper, UserWrapper, Avatar, BtnWrapper, PlayAll, CollectAll, DownloadAll } from './style'
 import { Icon, Button } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
@@ -19,23 +19,23 @@ export default function SongslistTitle(props) {
 	}
 
 	return (
-		<div className="list-title-wrapper">
-			<img className="left-wrapper" src={coverImgUrl} alt="name"/>
-			<div className="right-wrapper">
+		<Wrapper>
+			<Pic src={coverImgUrl} alt="name"/>
+			<DescWrapper >
 				<span>{name}</span>
-				<Link className="user-wrapper" to='/page/user' onClick={() => handleRouteToUser(userId)}>
-					<img src={avatarUrl} alt={nickname}/>
+				<UserWrapper to='/page/user' onClick={() => handleRouteToUser(userId)}>
+					<Avatar src={avatarUrl} alt={nickname}/>
 					<span>{nickname}</span>
-				</Link>
+				</UserWrapper>
 				<span>播放次数：{playCount}</span>
 				<span>歌曲数目：{tracks.length}</span>
 				<span>简介：{description}</span>
-				<div className="operation-wrapper">
-					<Button type="primary">播放全部</Button>
-					<Button>收藏歌单</Button>
-					<Button>下载全部</Button>
-				</div>
-			</div>
-		</div>
+				<BtnWrapper>
+					<PlayAll type="primary">播放全部</PlayAll>
+					<CollectAll>收藏歌单</CollectAll>
+					<DownloadAll>下载全部</DownloadAll>
+				</BtnWrapper>
+			</DescWrapper>
+		</Wrapper>
 	)
 }

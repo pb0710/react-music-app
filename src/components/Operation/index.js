@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import './index.scss'
+import {Wrapper } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import routeMap from 'common/routeMap'
@@ -29,13 +29,13 @@ export default function Operation() {
 	}, [songId])
 
 	return (
-		<div className="control-wrapper">
+		<Wrapper>
 			{
 				songsURL.map(item => item.id === songId && (
-					<Fragment key={item.id}>
-					</Fragment>
+					<>
+					</>
 				))
 			}
-    </div>
+    </Wrapper>
 	)
 }

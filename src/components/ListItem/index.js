@@ -1,7 +1,5 @@
 import React from 'react'
-import './index.scss'
-import { Icon, Button, List } from 'antd'
-import { Link } from 'react-router-dom'
+import { Wrapper, Title, OperationWrapper, Play, Collect, Download, Singer, Album, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import pageRouter from 'common/pageRouter'
 
@@ -14,26 +12,26 @@ export default function ListItem(props) {
   const { id: singerId, name: singerName } = ar[0]
 
   return (
-    <List.Item>
-      <span className="song-title">{name}</span>
-      <div className="song-operation-wrapper">
-        <Icon 
+    <Wrapper>
+      <Title>{name}</Title>
+      <OperationWrapper>
+        <Play 
           type="play-square" 
-          className={`song-play ${playingId === id ? 'selected' : ''}`} 
+          selected={playingId === id}
           onClick={() => props.handlePlayMusic(id)} 
           theme={playingId === id ? 'filled' : ''}
         />
-        <Icon 
+        <Collect 
           type="heart"
-          className={`song-collect ${playingId === id ? 'selected' : ''}`} 
+          selected={playingId === id}
           onClick={() => props.handleCollect(id)} 
           theme={playingId === id ? 'filled' : ''}
         />
-        <Icon type="cloud-download" className="song-download" />
-      </div>
-      <Link to='/page/singer' className="song-singer">{singerName}</Link>
-      <Link to='/page/album' className="song-album">{ablumName}</Link>
-      <span className="song-span">3:45</span>
-    </List.Item>
+        <Download type="cloud-download" />
+      </OperationWrapper>
+      <Singer to="/page/singer">{singerName}</Singer>
+      <Album to="/page/album">{ablumName}</Album>
+      <Duration>3:45</Duration>
+    </Wrapper>
   )
 }

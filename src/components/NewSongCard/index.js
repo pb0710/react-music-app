@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import { Wrapper, PicWrapper, Pic, Desc, Play } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
@@ -27,17 +27,17 @@ export default function SongslistCard(props) {
 	}
 
 	return (
-		<div className="newsong-card-wrapper">
-			<Link to={pageRouter.song} className="pic-wrapper" onClick={() => handleRouteToSong(id)}>
-				<img className="card-pic" src={picUrl} alt={name} />
-			</Link>
-			<div className="desc-wrapper">
+		<Wrapper>
+			<PicWrapper to={pageRouter.song} onClick={() => handleRouteToSong(id)}>
+				<Pic src={picUrl} alt={name} />
+			</PicWrapper>
+			<Desc>
 				<span>{name}</span>
 				<Link to={pageRouter.song}>{singerName}</Link>
-			</div>
-      <Link className="play-wrapper" to={pageRouter.song} onClick={() => handleRouteToSong(id)}>
+			</Desc>
+      <Play to={pageRouter.song} onClick={() => handleRouteToSong(id)}>
       	<Icon type="play-circle" />
-      </Link>
-    </div>
+      </Play>
+    </Wrapper>
 	)
 }

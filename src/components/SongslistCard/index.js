@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import { Wrapper, CountWrapper, PicWrapper, Pic, Open, Title } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
@@ -17,20 +17,19 @@ export default function SongslistCard(props) {
 	}
 
 	return (
-		<Link 
-			to={pageRouter.songslist}  
-			className="songslist-card-wrapper" 
+		<Wrapper 
+			to={pageRouter.songslist}   
 			onClick={() => handleRouteToSongslist(id)}
 		>
-			<div className="playcount-wrapper">
+			<CountWrapper>
 				<Icon type="customer-service" />
 				<span>{Math.round(playCount/10000)}万</span>
-			</div>
-			<div className="pic-wrapper">
-				<img className="card-pic" src={picUrl} alt={name} />
-			</div>
-			<Icon className="enter-wrapper" type="play-circle" />
-      <span className="desc" to={pageRouter.songslist}>{name}</span>
-    </Link>
+			</CountWrapper>
+			<PicWrapper>
+				<Pic src={picUrl} alt={name} />
+			</PicWrapper>
+			<Open type="play-circle" />
+      <Title to={pageRouter.songslist}>{name}</Title>
+    </Wrapper>
 	)
 }

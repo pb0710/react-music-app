@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './index.scss'
+import { Wrapper} from './style'
 import { Menu, Icon } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import routeMap from 'common/routeMap'
@@ -19,10 +19,14 @@ export default function Drawer() {
 	}
 
 	return (
-		<Menu className="drawer-wrapper" mode="inline" onClick={handleSelect} selectedKeys={selected}>
+		<Wrapper mode="inline" onClick={handleSelect} selectedKeys={selected}>
     	{
-    		routeMap.map(item => <Item key={item.value}><Icon type={item.icon} />{item.title}</Item>)
+    		routeMap.map(item => (
+    			<Item key={item.value}>
+	    			<Icon type={item.icon} />{item.title}
+	    		</Item>)
+    		)
     	}
-    </Menu>
+    </Wrapper>
 	)
 }

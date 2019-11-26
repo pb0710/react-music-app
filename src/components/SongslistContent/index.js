@@ -1,6 +1,5 @@
 import React from 'react'
-import './index.scss'
-import { Icon, Button, List } from 'antd'
+import { Wrapper, firstItem, Title, Singer, Album, Duration } from './style'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import pageRouter from 'common/pageRouter'
@@ -36,14 +35,14 @@ export default function SongslistContent(props) {
   }
 
   return (
-    <List className="list-content-wrapper">
-      <List.Item className='list-header-wrapper'>
-        <span className="song-title">歌曲名</span>
-        <div className="song-operation-wrapper"></div>
-        <span className="song-singer">歌手</span>
-        <span className="song-album">专辑</span>
-        <span className="song-span">时长</span>
-      </List.Item>
+    <Wrapper>
+      <firstItem>
+        <Title>歌曲名</Title>
+        <div></div>
+        <Singer>歌手</Singer>
+        <Album>专辑</Album>
+        <Duration>时长</Duration>
+      </firstItem>
       {
         tracks.map(item => (<ListItem 
           item={item} 
@@ -52,6 +51,6 @@ export default function SongslistContent(props) {
           handleCollect={handleCollect} 
         />))
       }
-    </List>
+    </Wrapper>
   )
 }

@@ -1,18 +1,18 @@
 import React from 'react'
-import './index.scss'
+import {Wrapper, TitleWrapper, Title, ChildrenWrapper} from './style'
 import { Icon } from 'antd'
 
 export default function Pannel(props) {
   const { title, children } = props
   return (
-    <div className="pannel-wrapper">
-      <div className="title-wrapper">
-        <span>{title}</span>
+    <Wrapper>
+      <TitleWrapper>
+        <Title>{title}</Title>
         {title ? <Icon type="right"></Icon> : null}
-      </div>
-      <div className="children-wrapper">
+      </TitleWrapper>
+      <ChildrenWrapper>
         {children}
-      </div>
-    </div>
+      </ChildrenWrapper>
+    </Wrapper>
   )
 }

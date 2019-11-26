@@ -10,7 +10,7 @@ export const Wrapper = styled.div `
 `
 
 export const BtnWrapper = styled.div `
-	/*display: ${props => (props.hide ? 'none' : 'block')};*/
+	display: ${props => (props.hide ? 'none' : 'block')};
 	position: absolute;
 	top: calc(50% - 40px);
 	color: rgba(255, 255, 255, .8);

@@ -58,7 +58,7 @@ export default function Search() {
 			/>
 			{
 				isShowPannel
-				? <ResultWrapper className="glass" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+				? <ResultWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 					{
 						inputValue === ''
 						? <Hot handleClickTag={handleClickTag} />

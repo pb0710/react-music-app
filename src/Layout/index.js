@@ -3,7 +3,7 @@ import Header from './Header'
 import Content from './Content'
 import Sider from './Sider'
 import Footer from './Footer'
-import {Wrapper,BodyWrapper} from './style'
+import { Wrapper, BodyWrapper } from './style'
 
 export default function Layout() {
 	return (
