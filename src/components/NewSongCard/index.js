@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Wrapper, PicWrapper, Pic, Desc, Play } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
@@ -18,6 +18,7 @@ export default function SongslistCard(props) {
 	} = props.dataSource
 
 	const dispatch = useDispatch()
+	const [isFocus, setIsFocus] = useState(false)
 
 	const handleRouteToSong = songId => {
 		dispatch({
@@ -26,8 +27,15 @@ export default function SongslistCard(props) {
 		})
 	}
 
+	const handleMouseEnter = () => {
+		setIsFocus(true)
+	}
+	const handleMouseLeave = () => {
+		setIsFocus(false)
+	}
+	
 	return (
-		<Wrapper>
+		<Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			<PicWrapper to={pageRouter.song} onClick={() => handleRouteToSong(id)}>
 				<Pic src={picUrl} alt={name} />
 			</PicWrapper>
@@ -35,7 +43,7 @@ export default function SongslistCard(props) {
 				<span>{name}</span>
 				<Link to={pageRouter.song}>{singerName}</Link>
 			</Desc>
-      <Play to={pageRouter.song} onClick={() => handleRouteToSong(id)}>
+      <Play to={pageRouter.song} hide={+!isFocus} onClick={() => handleRouteToSong(id)}>
       	<Icon type="play-circle" />
       </Play>
     </Wrapper>

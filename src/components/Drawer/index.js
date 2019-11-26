@@ -8,7 +8,7 @@ const { Item } = Menu
 export default function Drawer() {
 	const dispatch = useDispatch()
 	const { selected } = useMappedState(state => ({
-		selected: state.sider.drawer.selected
+		selected: state.sider.selected
 	}))
 
 	const handleSelect = e => {

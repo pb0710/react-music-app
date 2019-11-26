@@ -20,7 +20,7 @@ export const TagWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	padding: 5px 0;
+	padding: 10px 5px;
 `
 
 export const Tag = styled.div`

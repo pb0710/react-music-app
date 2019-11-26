@@ -9,14 +9,14 @@ export const Input = styled.input`
 	${props => props.isFocus 
 		? `
 			width: 300px;
-			border: 1px solid #eee;
-			background: #fafafa;
+			border: 1px solid #1890ff;
+			background: #fff;
 			text-align: left;
 		` 
 		: `
 			width: 200px;
-			background: #fff;
-			border: 1px solid #1890ff;
+			background: #fafafa;
+			border: 1px solid #eee;
 			text-align: center
 		`
 	}

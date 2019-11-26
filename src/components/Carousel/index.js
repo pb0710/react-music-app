@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Img, Wrapper, IndicatorWrapper,Indicator, BtnWrapper,Left, Right } from './style'
+import { Img, Wrapper, IndicatorWrapper, Indicator, BtnWrapper, Left, Right } from './style'
 import * as utils from 'utils'
 
 export default function Carousel(props) {
@@ -8,8 +8,7 @@ export default function Carousel(props) {
 
   const [banners, setBanners] = useState([])
   const [position, setPosition] = useState([])
-  const [allowScroll, setAllowScroll] = useState(true)
-  const [isBtnHide, setIsBtnHide] = useState(true)
+  const [isFocus, setIsFocus] = useState(false)
 
   const getRemotePic = async () => {
     try {
@@ -30,16 +29,13 @@ export default function Carousel(props) {
   }, [banners])
 
   useEffect(() => {
-    if (allowScroll) {
-      scrollTimeout = setTimeout(
-        () => {
+    isFocus 
+      ? clearTimeout(scrollTimeout)
+      : scrollTimeout = setTimeout(() => {
           carouselScrollTo(2)
         },
         autoScrollInterval ? autoScrollInterval : 5000
       )
-    } else {
-      clearTimeout(scrollTimeout)
-    }
     return () => {
       clearTimeout(scrollTimeout)
     }
@@ -65,9 +61,12 @@ export default function Carousel(props) {
     setPosition(newPosition)
   }
 
-  const changeScrollStatus = (isMove) => {
-    setIsBtnHide(isMove)
-    setAllowScroll(isMove)
+  const handleMouseEnter = () => {
+    setIsFocus(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsFocus(false)
   }
 
   const handleSelect = position => {
@@ -107,14 +106,17 @@ export default function Carousel(props) {
   )
 
   const btnRender = () => (
-    <BtnWrapper hide={false}>
+    <BtnWrapper hide={!isFocus}>
       <Left onClick={handleForward} type="left"/>
       <Right onClick={handleReturn} type="right"/>
     </BtnWrapper>
   )
 
   return (
-    <Wrapper onMouseEnter={() => changeScrollStatus(false)} onMouseLeave={() => changeScrollStatus(true)}>
+    <Wrapper 
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave}
+    >
       {bannerRender()}
       {btnRender()}
       {indicatorRender()}

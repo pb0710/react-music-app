@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 export const Wrapper = styled.div`
 	width: 100%;
 `
@@ -27,17 +27,19 @@ export const Title = styled.div`
 	color: #777;
 `
 
-export const Item = styled.div`
+export const Item = styled(Link)`
 	display: flex;
 	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
 	height: 30px;
 	padding: 0 20px;
-	font-size: 13px;
-	white-space: nowrap;  
-	text-overflow: ellipsis; 
-  overflow: hidden;
+	>span {
+		font-size: 13px;
+		white-space: nowrap;  
+		text-overflow: ellipsis; 
+		overflow: hidden;
+	}
   :hover {
   	background: #eee;
   }

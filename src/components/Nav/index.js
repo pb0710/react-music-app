@@ -8,7 +8,7 @@ import routeMap from 'common/routeMap'
 export default function Nav() {
 	const dispatch = useDispatch()
 	const { selected } = useMappedState(state => ({
-		selected: state.sider.drawer.selected
+		selected: state.sider.selected
 	}))
 	const history = useHistory()
 	const [current, setCurrent] = useState(routeMap[0].child[0].value)

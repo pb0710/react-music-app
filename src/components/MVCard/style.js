@@ -19,6 +19,7 @@ export const CountWrapper = styled.div`
 
 	>span {
 		margin: 0 4px;
+		color: #fff;
 		font-size: 12px;
 	}
 `
@@ -43,9 +44,9 @@ export const PicWrapper = styled.div`
 	}
 
 	:hover {
-		.img {
-			filter: brightness(60%);
-			transform: scale(1.1);
+		img {
+			filter: brightness(80%);
+			transform: scale(1);
 		}
 
 		i {

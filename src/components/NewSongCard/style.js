@@ -13,17 +13,13 @@ export const Wrapper = styled.div`
 	cursor: default;
 	transition: background .2s;
 
-	&:nth-child(1),
-	&:nth-child(2) {
+	:nth-child(1),
+	:nth-child(2) {
 		border-top: 1px solid #eee;
 	}
 
-	&:hover {
+	:hover {
 		background: #eee;
-
-		>.play-wrapper>i {
-			opacity: 1;
-		}
 	}
 `
 
@@ -77,7 +73,7 @@ export const Play = styled(Link)`
 	>i {
 		font-size: 30px;
 		line-height: 80px;
-		opacity: 0;
+		opacity: ${props => props.hide ? 0 : 1};
 		transition: opacity .2s;
 	}
 `

@@ -14,7 +14,7 @@ const show = keyframes `
   }
 `
 
-export const Wrapper = styled.header `
+export const Wrapper = styled.div `
 	display: flex;
 	-ms-align-items: center;
 	align-items: center;

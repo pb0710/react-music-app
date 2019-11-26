@@ -10,14 +10,16 @@ export const Wrapper = styled.div `
 `
 
 export const BtnWrapper = styled.div `
-	display: ${props => (props.hide ? 'none' : 'block')};
+	display: ${props => props.hide ? 'none' : 'flex'};
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+	width: calc(40vw + 400px);
+	height: calc(100% - 20px);
 	position: absolute;
-	top: calc(50% - 40px);
-	color: rgba(255, 255, 255, .8);
-	>div {
-		position: absolute;
-		top: calc(50% - 40px);
-		line-height: 64px;
+	top: 0;
+
+	>i {
 		font-size: 26px;
 		color: rgba(255, 255, 255, .8);
 		z-index: 99;
@@ -32,8 +34,7 @@ export const IndicatorWrapper = styled.div `
 	bottom: 0;
 `
 
-export const Indicator = styled(Icon)
-`
+export const Indicator = styled.div`
 	width: 6px;
 	height: 6px;
 	border-radius: 50%;

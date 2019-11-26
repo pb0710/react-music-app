@@ -22,6 +22,7 @@ export const CountWrapper = styled.div`
 	>span {
 		margin: 0 4px;
 		font-size: 13px;
+		color: #fff;
 	}
 `
 
@@ -30,16 +31,6 @@ export const PicWrapper = styled.div`
 	height: calc(100% - 50px);
 	border-radius: 4px;
 	overflow: hidden;
-
-	:hover {
-		>img {
-			filter: brightness(80%);
-		}
-
-		~.enter-wrapper {
-			opacity: 1;
-		}
-	}
 `
 
 export const Pic = styled.img`
@@ -47,6 +38,10 @@ export const Pic = styled.img`
 	height: 100%;
 	border-radius: 4px;
 	transition: filter .2s ease-out;
+
+	:hover {
+		filter: brightness(80%);
+	}
 `
 
 export const Open = styled(Icon)`
@@ -55,13 +50,9 @@ export const Open = styled(Icon)`
 	bottom: 60px;
 	font-size: 40px;
 	color: #fafafa;
-	opacity: 0;
+	opacity: ${props => props.hide ? 0 : 1};
 	z-index: 9;
 	transition: opacity .2s ease-out;
-
-	:hover {
-		opacity: 1
-	}
 `
 
 export const Title = styled.span`

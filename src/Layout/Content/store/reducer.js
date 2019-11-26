@@ -1,15 +1,6 @@
-const defaultState = {
-	
-}
+import { combineReducers } from 'redux'
+import songslist from '../Songslist/store/reducer'
 
-export default (state = defaultState, action) => {
-	const {type, payload} = action
-	switch (type) {
-		case 'SEARCH1111':
-			return {...state, searchKeyword: payload}
-		default:
-			// statements_def
-			break;
-	}
-	return state
-}
+export default combineReducers({
+	songslist
+})
