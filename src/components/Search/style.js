@@ -29,6 +29,7 @@ export const ResultWrapper = styled.div `
 	min-height: 60px;
 	position: absolute;
 	top: 44px;
+	left: 100px;
 	background: #fff;
 	border: 1px solid #eee;
 	border-radius: 10px;

@@ -12,7 +12,6 @@ export default function SongslistContent(props) {
   const { tracks } = props.dataSource
 
   const handlePlayMusic = id => {
-    console.log('play')
     dispatch({
       type: 'PLAY_MUSIC',
       payload: id
@@ -44,12 +43,12 @@ export default function SongslistContent(props) {
         <Duration>时长</Duration>
       </firstItem>
       {
-        tracks.map(item => (<ListItem 
+        tracks.map(item => <ListItem 
           item={item} 
           key={item.id} 
           handlePlayMusic={handlePlayMusic} 
           handleCollect={handleCollect} 
-        />))
+        />)
       }
     </Wrapper>
   )

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div`	
 	width: 100%;
 	height: 30px;
 `
@@ -22,6 +22,7 @@ export const Input = styled.input`
 	}
 	height: 30px;
 	padding: 0 10px;
+	margin-left: 100px;
 	outline: none;
 	border-radius: 15px;
 	font-size: 13px;

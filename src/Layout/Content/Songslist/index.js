@@ -12,6 +12,7 @@ export default function Songslist() {
 		listId: state.content.songslist.id
 	}))
 	const [songslist, setSongslist] = useState([])
+	
 	const getRemoteSongslist = async () => {
 		try {
 			const { playlist } = await api.fetchSongslistDetail({ id: listId })

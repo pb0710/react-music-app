@@ -10,6 +10,9 @@ export const Wrapper = styled(Link)`
 	margin-bottom: 10px;
 	position: relative;
 	cursor: default;
+	i {
+		color: rgba(255, 255, 255, .8);
+	}
 `
 
 export const CountWrapper = styled.div`
@@ -49,7 +52,6 @@ export const Open = styled(Icon)`
 	right: 10px;
 	bottom: 60px;
 	font-size: 40px;
-	color: #fafafa;
 	opacity: ${props => props.hide ? 0 : 1};
 	z-index: 9;
 	transition: opacity .2s ease-out;

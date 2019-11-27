@@ -56,7 +56,9 @@ export const BtnWrapper = styled.div`
 `
 
 export const PlayAll = styled(Button)`
-	
+	>span {
+		color: #fff;
+	}
 `
 
 export const CollectAll = styled(Button)`

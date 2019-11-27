@@ -11,19 +11,12 @@ export default function SongslistTitle(props) {
 	if (props.dataSource.length === 0) return null
 	const { coverImgUrl, name, description, playCount, tracks, creator: { avatarUrl, nickname, userId } } = props.dataSource
 
-	const handleRouteToUser = userId => {
-		dispatch({
-			type: 'CHANGE_USER_ID',
-			payload: userId
-		})
-	}
-
 	return (
 		<Wrapper>
 			<Pic src={coverImgUrl} alt="name"/>
 			<DescWrapper >
 				<span>{name}</span>
-				<UserWrapper to='/page/user' onClick={() => handleRouteToUser(userId)}>
+				<UserWrapper to='/page/user'>
 					<Avatar src={avatarUrl} alt={nickname}/>
 					<span>{nickname}</span>
 				</UserWrapper>

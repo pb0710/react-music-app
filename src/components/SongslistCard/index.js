@@ -18,16 +18,20 @@ export default function SongslistCard(props) {
 		})
 	}
 
-	const handleChangeIconStatus = isHide => {
-		setHide(isHide)
+	const handleMouseEnter = () => {
+		setHide(false)
+	}
+
+	const handleMouseLeave = () => {
+		setHide(true)
 	}
 
 	return (
 		<Wrapper 
 			to={pageRouter.songslist}   
 			onClick={() => handleRouteToSongslist(id)}
-			onMouseEnter={() => handleChangeIconStatus(false)}
-			onMouseLeave={() => handleChangeIconStatus(true)}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 		>
 			<CountWrapper>
 				<Icon type="customer-service" />
