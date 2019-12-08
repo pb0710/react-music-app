@@ -8,7 +8,7 @@ export const Wrapper = styled(List.Item)`
 	border-radius: 4px;
 
 	:hover {
-		background: #eee;
+		background: #fafafa;
 	}
 `
 
@@ -19,6 +19,27 @@ export const Title = styled.span`
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+`
+
+export const Singer = styled(Link)`
+	width: 240px;
+	color: #444;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+`
+
+export const Album = styled(Link)`
+	width: 240px;
+	color: #444;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+`
+
+export const Duration = styled.span`
+	width: 80px;
+	padding-right: 10px;
 `
 
 export const OperationWrapper = styled.div`
@@ -47,24 +68,4 @@ export const Collect = styled(Icon)`
 
 export const Download = styled(Icon)`
 
-`
-
-export const Singer = styled(Link)`
-	width: 240px;
-	color: #444;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-`
-
-export const Album = styled(Link)`
-	width: 240px;
-	color: #444;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-`
-
-export const Duration = styled.span`
-	padding-right: 10px;
 `

@@ -22,7 +22,6 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		border: 0;
 		font-size: 100%;
-		color: #333;
 		font: inherit;
 		vertical-align: baseline;
 	}
