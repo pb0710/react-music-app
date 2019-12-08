@@ -1,5 +1,5 @@
 import React, { Refs, useState, useEffect } from 'react'
-import { Wrapper,Pause,Play,Previous,Next } from './style'
+import { Wrapper,PlayWrapper, Pause,Play,Previous,Next,Love,Volume } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import routeMap from 'common/routeMap'
@@ -52,13 +52,17 @@ export default function Control() {
 					</>
 				))
 			}
-			<Previous type="icon-shangyishou" />
-			{
-				isPlaying 
-					? <Pause type="icon-zanting" onClick={handlePause} /> 
-					: <Play type="icon-bofang1" onClick={handlePlay} />
-			}
-			<Next type="icon-xiayishou" />
+			<Love type="heart" />
+			<PlayWrapper>
+				<Previous type="icon-shangyishou" />
+				{
+					isPlaying 
+						? <Pause type="icon-zanting" onClick={handlePause} /> 
+						: <Play type="icon-bofang1" onClick={handlePlay} />
+				}
+				<Next type="icon-xiayishou" />
+			</PlayWrapper>
+			<Volume type="sound" />
     </Wrapper>
 	)
 }

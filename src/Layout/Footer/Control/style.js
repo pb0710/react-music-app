@@ -1,17 +1,22 @@
 import styled from 'styled-components'
 import { Icon } from 'antd'
-
-const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1268494_rlgaxozsrt8.js',
-})
+import IconFont from 'common/icon'
 
 export const Wrapper = styled.div `
 	display: flex;
 	-ms-align-items: center;
 	align-items: center;
-	justify-content: center;
-	width: 400px;
+	justify-content: space-around;
+	width: 360px;
 	height: 100%;
+`
+
+export const PlayWrapper = styled.div`
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: space-between;
+	width: 160px;
 `
 
 export const Pause = styled(IconFont)
@@ -32,4 +37,14 @@ export const Previous = styled(IconFont)
 export const Next = styled(IconFont)
 `
 	font-size: 44px;
+`
+
+export const Love = styled(Icon)
+`
+	font-size: 18px;
+`
+
+export const Volume = styled(Icon)
+`
+	font-size: 18px;
 `

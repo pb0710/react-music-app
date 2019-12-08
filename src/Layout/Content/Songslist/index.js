@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import './index.scss'
 import { Button, List } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link } from 'react-router-dom'
