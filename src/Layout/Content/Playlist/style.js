@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 	-ms-flex-direction: column;
 	-o-flex-direction: column;
 	flex-direction: column;
-	width: 500px;
+	width: 400px;
 	height: calc(100vh - 108px);
 	position: fixed;
 	bottom: 60px;
@@ -22,5 +22,5 @@ export const Wrapper = styled.div`
 	-webkit-transition: transform .4s;
 	-o-transition: transform .4s;
 	transition: transform .4s;
-	transform: ${props => props.isShow ? 'translateX(0)' : 'translateX(500px)'};
+	transform: ${props => props.isShow ? 'translateX(0)' : 'translateX(400px)'};
 `
