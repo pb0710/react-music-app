@@ -3,7 +3,7 @@ import { Wrapper, CountWrapper, PicWrapper, Pic, DescWrapper } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import pageRouter from 'common/pageRouter'
+import pagesRouteMap from 'common/pagesRouteMap'
 
 export default function MVCard(props) {
 	const { name, id, picUrl, artistName, playCount, copywriter } = props.dataSource
@@ -23,14 +23,14 @@ export default function MVCard(props) {
 				<span>{playCount}</span>
 			</CountWrapper>
 			<PicWrapper  onClick={() => handleRouteToSongslist(id)}>
-				<Link to={pageRouter.mv}>
+				<Link to={pagesRouteMap.mv}>
 					<Icon type="play-circle" />
 					<Pic src={picUrl} alt={name} />
 				</Link>
 			</PicWrapper>
       <DescWrapper onClick={() => handleRouteToSongslist(id)}>
-      	<Link to={pageRouter.mv} >{name}</Link>
-      	<Link to={pageRouter.singer} >{artistName}</Link>
+      	<Link to={pagesRouteMap.mv} >{name}</Link>
+      	<Link to={pagesRouteMap.singer} >{artistName}</Link>
       </DescWrapper>
     </Wrapper>
 	)

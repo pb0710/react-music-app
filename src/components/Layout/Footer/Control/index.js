@@ -1,8 +1,8 @@
 import React, { Refs, useState, useEffect } from 'react'
-import { Wrapper,PlayWrapper, Pause,Play,Previous,Next,Love,Volume } from './style'
+import { Wrapper, PlayWrapper, Pause, Play, Previous, Next, Love, Volume } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
-import routeMap from 'common/routeMap'
+import navRouteMap from 'common/navRouteMap'
 import * as api from 'api'
 
 export default function Control() {

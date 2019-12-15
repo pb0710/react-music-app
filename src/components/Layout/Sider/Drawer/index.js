@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Wrapper} from './style'
 import { Menu, Icon } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import routeMap from 'common/routeMap'
+import navRouteMap from 'common/navRouteMap'
 const { Item } = Menu
 
 export default function Drawer() {
@@ -21,7 +21,7 @@ export default function Drawer() {
 	return (
 		<Wrapper mode="inline" onClick={handleSelect} selectedKeys={selected}>
     	{
-    		routeMap.map(item => (
+    		navRouteMap.map(item => (
     			<Item key={item.value}>
 	    			<Icon type={item.icon} />{item.title}
 	    		</Item>)

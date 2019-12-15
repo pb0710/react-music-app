@@ -2,7 +2,7 @@ import React from 'react'
 import { Wrapper, FirstItem, Title, OperationWrapper,Singer, Album, Duration } from './style'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import pageRouter from 'common/pageRouter'
+import pagesRouteMap from 'common/pagesRouteMap'
 import ListItem from '@/ListItem'
 
 export default function SongslistContent(props) {

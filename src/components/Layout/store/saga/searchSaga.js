@@ -31,8 +31,8 @@ function* searchWatch() {
 
 export default function* () {
 	yield all([
-		fork(updateKeywordsWatch),
-		fork(selectHotSearchWatch),
-  	fork(searchWatch)
+		updateKeywordsWatch(),
+		selectHotSearchWatch(),
+  	searchWatch()
   ])
 }

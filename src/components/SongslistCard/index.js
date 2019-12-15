@@ -3,7 +3,7 @@ import { Wrapper, CountWrapper, PicWrapper, Pic, Open, Title } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import pageRouter from 'common/pageRouter'
+import pagesRouteMap from 'common/pagesRouteMap'
 
 export default function SongslistCard(props) {
 	const { picUrl, name, playCount, id } = props.dataSource
@@ -28,7 +28,7 @@ export default function SongslistCard(props) {
 
 	return (
 		<Wrapper 
-			to={pageRouter.songslist}   
+			to={pagesRouteMap.songslist}   
 			onClick={() => handleRouteToSongslist(id)}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
@@ -41,7 +41,7 @@ export default function SongslistCard(props) {
 				<Pic src={picUrl} alt={name} />
 			</PicWrapper>
 			<Open type="play-circle" hide={+hide}/>
-      <Title to={pageRouter.songslist}>{name}</Title>
+      <Title to={pagesRouteMap.songslist}>{name}</Title>
     </Wrapper>
 	)
 }

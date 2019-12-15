@@ -3,7 +3,7 @@ import { Wrapper, Pic, DescWrapper, UserWrapper, Avatar, BtnWrapper, PlayAll, Co
 import { Icon, Button } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import pageRouter from 'common/pageRouter'
+import pagesRouteMap from 'common/pagesRouteMap'
 
 export default function SongslistTitle(props) {
 	const dispatch = useDispatch()

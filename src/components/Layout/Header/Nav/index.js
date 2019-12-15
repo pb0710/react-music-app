@@ -3,7 +3,7 @@ import { Wrapper } from './style'
 import { Menu } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
-import routeMap from 'common/routeMap'
+import navRouteMap from 'common/navRouteMap'
 
 export default function Nav() {
 	const dispatch = useDispatch()
@@ -11,10 +11,10 @@ export default function Nav() {
 		selected: state.sider.selected
 	}))
 	const history = useHistory()
-	const [current, setCurrent] = useState(routeMap[0].child[0].value)
+	const [current, setCurrent] = useState(navRouteMap[0].child[0].value)
 
 	useEffect(() => {
-		routeMap.forEach(item => {
+		navRouteMap.forEach(item => {
 			if (item.value === selected) {
 				const selectedFirstChildsValue = item.child[0].value
 				setCurrent(selectedFirstChildsValue)
@@ -30,7 +30,7 @@ export default function Nav() {
 	return (
 		<Wrapper onClick={handleClick} selectedKeys={current} mode="horizontal">
     	{
-    		routeMap.map(item => 
+    		navRouteMap.map(item => 
     			item.value === selected && item.child.map(child => (
     				<Menu.Item key={child.value}>
     					<Link to={`/page/${item.value}/${child.value}`}>{child.title}</Link>

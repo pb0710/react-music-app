@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Wrapper, Title, OperationWrapper, Play, Collect, Download, Singer, Album, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
-import pageRouter from 'common/pageRouter'
+import pagesRouteMap from 'common/pagesRouteMap'
 
 export default function ListItem(props) {
   const dispatch = useDispatch()
