@@ -13,8 +13,18 @@ export const Container = styled(Glass)`
 	right: 0;
 	bottom: ${global.footerHeight};
 	border-left: ${global.transparentBorder};
-	box-shadow: ${global.boxShadow};
-	z-index: 999;
+	box-shadow: -1px 0px 3px 0 rgba(0, 0, 0, .1);
+	z-index: 999999;
 	transition: transform .4s ease-out;
 	transform: translateX(${props => props.isShow ? 0 : playlistWidth});
+`
+
+export const Mask = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	z-index: 99999;
 `

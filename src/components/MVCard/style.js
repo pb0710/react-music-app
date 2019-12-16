@@ -8,7 +8,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: top;
 	width: calc(9vw + 90px);
-	height: calc(6vw + 110px);
+	height: calc(5vw + 110px);
 	position: relative;
 	cursor: default;
 `

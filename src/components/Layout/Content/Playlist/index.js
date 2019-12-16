@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Container } from './style'
+import { Container, Mask } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import navRouteMap from 'common/navRouteMap'
@@ -11,13 +11,19 @@ export default function Operation(props) {
 		playlistIsShow: state.content.playlist.isShow
 	}))
 
-	useEffect(() => {
-		
-	}, [])
+	const handleRemoveMask = () => {
+		dispatch({
+			type: 'CHANGE_PLAYLIST_STATUS',
+			payload: false
+		})
+	}
 
 	return (
-		<Container isShow={playlistIsShow}>
-			222211111
-    </Container>
+		<>
+			<Container isShow={playlistIsShow}>
+				222211111
+	    </Container>
+	    {playlistIsShow && <Mask onClick={handleRemoveMask} />}
+    </>
 	)
 }

@@ -4,9 +4,13 @@ import { useMappedState, useDispatch } from 'redux-react-hook'
 import SearchInput from './SearchInput'
 import Hot from './Hot'
 import Suggest from './Suggest'
+import NotFound from './NotFound'
 
 export default function Search() {
 	const dispatch = useDispatch()
+	const { searchSuggest } = useMappedState(state => ({
+		searchSuggest: state.header.search.suggest
+	}))
 
 	const [inputValue, setInputValue] = useState('')
 	const [isFocus, setIsFocus] = useState(false)
@@ -61,8 +65,12 @@ export default function Search() {
 					? <ResultContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 						{
 							inputValue === ''
-							? <Hot handleClickTag={handleClickTag} />
-							: <Suggest />
+								? <Hot handleClickTag={handleClickTag} />
+								: (
+									searchSuggest
+										? <Suggest />
+										: <NotFound />
+								)
 						}
 					</ResultContainer>
 		    	: null

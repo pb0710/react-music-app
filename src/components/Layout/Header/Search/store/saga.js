@@ -1,4 +1,4 @@
-import { all, fork, put, takeEvery, takeLatest, delay, select,call } from 'redux-saga/effects'
+import { all, fork, put, takeEvery, takeLatest, delay, select, call } from 'redux-saga/effects'
 import * as api from 'api'
 
 function* updateKeywordsSaga(keywords) {
@@ -9,15 +9,23 @@ function* updateKeywordsSaga(keywords) {
 function* searchSaga(keywords) {
 	if (keywords === '') return
 	const { result } = yield api.fetchSearchSuggest(keywords)
-	yield put({
-		type: 'SAVE_SEARCH_RESULT',
-		payload: result
-	})
+	// 判断是空对象，清空result
+	if (Object.keys(result).length === 0) {
+		yield put({
+			type: 'CLEAR_SEARCH_RESULT'
+		})
+	} else {
+		yield put({
+			type: 'SAVE_SEARCH_RESULT',
+			payload: result
+		})
+	}
 }
 
 // -------------------------------------watch--------------------------------------------------------
 
 function* updateKeywordsWatch() {
+	// 防抖
 	yield takeLatest("FETCH_SEARCH_RESULT", action => updateKeywordsSaga(action.payload))
 }
 
