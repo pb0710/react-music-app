@@ -7,8 +7,8 @@ import * as api from 'api'
 
 export default function Operation(props) {
 	const dispatch = useDispatch()
-	const { isShow } = useMappedState(state => ({
-		isShow: state.content.playlist.isShow
+	const { playlistIsShow } = useMappedState(state => ({
+		playlistIsShow: state.content.playlist.isShow
 	}))
 
 	useEffect(() => {
@@ -16,7 +16,7 @@ export default function Operation(props) {
 	}, [])
 
 	return (
-		<Container isShow={isShow}>
+		<Container isShow={playlistIsShow}>
 			222211111
     </Container>
 	)

@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Container, Title,TagContainer, Tag } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import * as api from 'api'
-import {Button} from 'antd'
 
 export default function Hot(props) {
 	const { searchSuggest } = useMappedState(state => ({
-		searchSuggest: state.header.searchSuggest
+		searchSuggest: state.header.search.suggest
 	}))
 	const { order } = searchSuggest
 	const dispatch = useDispatch()

@@ -8,14 +8,14 @@ import SongslistHeader from '@/SongslistHeader'
 import SongslistContent from '@/SongslistContent'
 
 export default function Songslist() {
-	const { listId } = useMappedState(state => ({
-		listId: state.content.songslist.id
+	const { songslistId } = useMappedState(state => ({
+		songslistId: state.content.songslist.id
 	}))
 	const [songslist, setSongslist] = useState([])
 	
 	const getRemoteSongslist = async () => {
 		try {
-			const { playlist } = await api.fetchSongslistDetail({ id: listId })
+			const { playlist } = await api.fetchSongslistDetail({ id: songslistId })
 			setSongslist(playlist)
 			console.log('获取歌单详情成功', playlist)
 		} catch (e) {
@@ -25,7 +25,7 @@ export default function Songslist() {
 
 	useEffect(() => {
 		getRemoteSongslist()
-	}, [listId])
+	}, [songslistId])
 
 	return (
 		<Container>

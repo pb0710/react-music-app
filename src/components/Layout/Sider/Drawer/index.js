@@ -7,8 +7,8 @@ const { Item } = Menu
 
 export default function Drawer() {
 	const dispatch = useDispatch()
-	const { selected } = useMappedState(state => ({
-		selected: state.sider.selected
+	const { drawerSelected } = useMappedState(state => ({
+		drawerSelected: state.sider.drawer.selected
 	}))
 
 	const handleSelect = e => {
@@ -19,7 +19,7 @@ export default function Drawer() {
 	}
 
 	return (
-		<Container mode="inline" onClick={handleSelect} selectedKeys={selected}>
+		<Container mode="inline" onClick={handleSelect} selectedKeys={drawerSelected}>
     	{
     		navRouteMap.map(item => (
     			<Item key={item.value}>

@@ -4,7 +4,7 @@ import { useMappedState, useDispatch } from 'redux-react-hook'
 
 export default function Suggest() {
 	const { searchSuggest } = useMappedState(state => ({
-		searchSuggest: state.header.searchSuggest
+		searchSuggest: state.header.search.suggest
 	}))
 	const { order } = searchSuggest
 

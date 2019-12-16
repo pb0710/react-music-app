@@ -12,7 +12,7 @@ export default {
 	footerHeight: '60px',
 	normalBorder: '1px solid #eee',
 	transparentBorder: '1px solid rgba(200, 200, 200, .4)',
-	boxShadow: '1px 1px 3px 0 rgba(100, 100, 100, .2)',
+	boxShadow: '1px 1px 4px 0 rgba(0, 0, 0, .2)',
 
 	textOverflowEllipsis: `
 		white-space: nowrap;

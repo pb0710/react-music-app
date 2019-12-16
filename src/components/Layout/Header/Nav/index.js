@@ -7,21 +7,21 @@ import navRouteMap from 'common/navRouteMap'
 
 export default function Nav() {
 	const dispatch = useDispatch()
-	const { selected } = useMappedState(state => ({
-		selected: state.sider.selected
+	const { drawerSelected } = useMappedState(state => ({
+		drawerSelected: state.sider.drawer.selected
 	}))
 	const history = useHistory()
 	const [current, setCurrent] = useState(navRouteMap[0].child[0].value)
 
 	useEffect(() => {
 		navRouteMap.forEach(item => {
-			if (item.value === selected) {
+			if (item.value === drawerSelected) {
 				const selectedFirstChildsValue = item.child[0].value
 				setCurrent(selectedFirstChildsValue)
-				history.push(`/page/${selected}/${selectedFirstChildsValue}`)
+				history.push(`/page/${drawerSelected}/${selectedFirstChildsValue}`)
 			}
 		})
-	}, [selected])
+	}, [drawerSelected])
 
 	const handleClick = e => {
 		setCurrent(e.key)
@@ -31,7 +31,7 @@ export default function Nav() {
 		<Container onClick={handleClick} selectedKeys={current} mode="horizontal">
     	{
     		navRouteMap.map(item => 
-    			item.value === selected && item.child.map(child => (
+    			item.value === drawerSelected && item.child.map(child => (
     				<Menu.Item key={child.value}>
     					<Link to={`/page/${item.value}/${child.value}`}>{child.title}</Link>
     				</Menu.Item>

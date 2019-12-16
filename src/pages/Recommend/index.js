@@ -26,8 +26,8 @@ export default function Recommend() {
 
 	const getRemoteResource = async () => {
 		try {
-			const { result } = await api.fetchRecommendSongslist({ limit: 50 })
-			const sliceBegin = randomBetween(0, 40)
+			const { result } = await api.fetchRecommendSongslist({ limit: 30 })
+			const sliceBegin = randomBetween(0, 20)
 			setRecommendSongslist(result.slice(sliceBegin, sliceBegin + 10))
 			console.log('获取推荐歌单成功', result)
 		} catch (e) {

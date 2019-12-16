@@ -7,8 +7,8 @@ import * as api from 'api'
 
 export default function Playing() {
 	const dispatch = useDispatch()
-	const { songId } = useMappedState(state => ({
-		songId: state.footer.playing.id
+	const { playingId } = useMappedState(state => ({
+		playingId: state.footer.playing.id
 	}))
 
 	const [songsURL, setSongsURL] = useState([])
@@ -17,7 +17,7 @@ export default function Playing() {
 	const getPlayingMusic = async () => {
 
 		try {
-			const { songs } = await api.fetchSongsDetail(songId)
+			const { songs } = await api.fetchSongsDetail(playingId)
 			setSongsDetail(songs)
 			console.log('获取歌曲详情成功', songs)
 		} catch (e) {
@@ -25,7 +25,7 @@ export default function Playing() {
 		}
 
 		try {
-			const { data } = await api.fetchSongsUrl(songId)
+			const { data } = await api.fetchSongsUrl(playingId)
 			setSongsURL(data)
 			console.log('获取歌曲URL成功', data)
 		} catch (e) {
@@ -34,13 +34,13 @@ export default function Playing() {
 	}
 
 	useEffect(() => {
-		getPlayingMusic()
-	}, [songId])
+		playingId && getPlayingMusic()
+	}, [playingId])
 
 	return (
 		<Container>
 			{
-				songsDetail.map(item => item.id === songId && (
+				songsDetail.map(item => item.id === playingId && (
 					<>
 						<Pic src={item.al.picUrl} alt={item.name} />
 						<DescContainer>

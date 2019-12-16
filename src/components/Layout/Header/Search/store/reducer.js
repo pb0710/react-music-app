@@ -1,13 +1,15 @@
 const defaultState = {
-	listId: '0'
+	keywords: '',
+	suggest: {}
 }
 
 export default (state = defaultState, action) => {
 	const { type, payload } = action
 	switch (type) {
-		case 'CHANGE_PLAYLIST_ID':
-			console.log('listId', payload)
-			return { ...state, listId: payload }
+		case 'SEARCH':
+			return { ...state, keywords: payload }
+		case 'SAVE_SEARCH_RESULT':
+			return { ...state, suggest: payload }
 		default:
 			return state
 	}

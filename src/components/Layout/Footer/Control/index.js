@@ -9,8 +9,8 @@ export default function Control() {
 	const audioRef = React.createRef()
 
 	const dispatch = useDispatch()
-	const { songId } = useMappedState(state => ({
-		songId: state.footer.playing.id
+	const { playingId } = useMappedState(state => ({
+		playingId: state.footer.playing.id
 	}))
 	const [songsURL, setSongsURL] = useState([])
 	const [isPlaying, setIsPlaying] = useState(false)
@@ -18,7 +18,7 @@ export default function Control() {
 	const getPlayingMusic = async () => {
 
 		try {
-			const { data } = await api.fetchSongsUrl(songId)
+			const { data } = await api.fetchSongsUrl(playingId)
 			setSongsURL(data)
 			console.log('获取歌曲URL成功', data)
 		} catch (e) {
@@ -28,8 +28,8 @@ export default function Control() {
 
 	useEffect(() => {
 		getPlayingMusic()
-		songId && setIsPlaying(true)
-	}, [songId])
+		playingId && setIsPlaying(true)
+	}, [playingId])
 
 	const handlePause = () => {
 		console.log(audioRef)
@@ -46,7 +46,7 @@ export default function Control() {
 	return (
 		<Container>
 			{
-				songsURL.map(item => item.id === songId && (
+				songsURL.map(item => item.id === playingId && (
 					<>
 						<audio ref={audioRef} src={item.url} autoPlay={true}></audio>
 					</>

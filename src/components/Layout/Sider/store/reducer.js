@@ -1,14 +1,6 @@
-const defaultState = {
-	selected: 'find_music'
-}
+import { combineReducers } from 'redux'
+import drawer from '../Drawer/store/reducer'
 
-export default (state = defaultState, action) => {
-	const { type, payload } = action
-	switch (type) {
-		case 'CHANGE_DRAWER_SELECTED':
-			console.log('selected', payload)
-			return { ...state, selected: payload }
-		default:
-			return state
-	}
-}
+export default combineReducers({
+	drawer
+})

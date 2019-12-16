@@ -13,7 +13,7 @@ export default function SongslistCard(props) {
 
 	const handleRouteToSongslist = songslistId => {
 		dispatch({
-			type: 'CHANGE_PLAYLIST_ID',
+			type: 'CHANGE_SONGSLIST_ID',
 			payload: songslistId
 		})
 	}
