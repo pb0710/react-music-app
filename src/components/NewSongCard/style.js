@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -9,13 +10,13 @@ export const Wrapper = styled.div`
 	height: 80px;
 	position: relative;
 	border-radius: 4px;
-	border-bottom: 1px solid #eee;
+	border-bottom: ${global.normalBorder};
 	cursor: default;
 	transition: background .2s;
 
 	:nth-child(1),
 	:nth-child(2) {
-		border-top: 1px solid #eee;
+		border-top: ${global.normalBorder};
 	}
 
 	:hover {
@@ -23,7 +24,7 @@ export const Wrapper = styled.div`
 	}
 `
 
-export const PicWrapper = styled(Link)`
+export const PicContainer = styled(Link)`
 	display: flex;
 	align-items: center;
 	width: 60px;
@@ -49,9 +50,7 @@ export const Desc = styled.div`
 	>span {
 		color: #555;
 		font-size: 14px;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
+		${global.textOverflowEllipsis}
 	}
 
 	>a {
@@ -59,7 +58,7 @@ export const Desc = styled.div`
 		color: #777;
 		font-size: 12px;
 
-		&:hover {
+		:hover {
 			color: #1890ff;
 		}
 	}

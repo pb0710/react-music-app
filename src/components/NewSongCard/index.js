@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Wrapper, PicWrapper, Pic, Desc, Play } from './style'
+import { Container, PicContainer, Pic, Desc, Play } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
@@ -35,10 +35,10 @@ export default function SongslistCard(props) {
 	}
 	
 	return (
-		<Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-			<PicWrapper to={pagesRouteMap.song} onClick={() => handleRouteToSong(id)}>
+		<Container onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+			<PicContainer to={pagesRouteMap.song} onClick={() => handleRouteToSong(id)}>
 				<Pic src={picUrl} alt={name} />
-			</PicWrapper>
+			</PicContainer>
 			<Desc>
 				<span>{name}</span>
 				<Link to={pagesRouteMap.song}>{singerName}</Link>
@@ -46,6 +46,6 @@ export default function SongslistCard(props) {
       <Play to={pagesRouteMap.song} hide={+!isFocus} onClick={() => handleRouteToSong(id)}>
       	<Icon type="play-circle" />
       </Play>
-    </Wrapper>
+    </Container>
 	)
 }

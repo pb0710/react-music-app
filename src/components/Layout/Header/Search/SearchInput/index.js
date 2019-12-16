@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper, Input } from './style'
+import { Container, Input } from './style'
 import {Icon} from 'antd'
 
 export default function SearchInput(props) {
 	const { handleInput, handleFocus, handleBlur, inputValue, isFocus } = props
 	return (
-		<Wrapper>
+		<Container>
 			<Input 
 				onChange={handleInput} 
 				onFocus={handleFocus} 
@@ -14,6 +14,6 @@ export default function SearchInput(props) {
 				isFocus={isFocus}
 				placeholder={isFocus ? '' :'搜索...'}
 			/>
-		</Wrapper>
+		</Container>
 	)
 }

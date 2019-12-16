@@ -1,22 +1,23 @@
 import styled from 'styled-components'
 import { Icon, Button } from 'antd'
 import { Link } from 'react-router-dom'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-	width: calc(40vw + 434px);
+	width: ${global.containerWidth};
 	margin: 20px auto;
 `
 
 export const Pic = styled.img`
 	width: 180px;
 	height: 180px;
-	box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .2);
+	box-shadow: ${global.boxShadow};
 	border-radius: 4px;
 `
 
-export const DescWrapper = styled.div`
+export const DescContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -36,7 +37,7 @@ export const DescWrapper = styled.div`
 	}
 `
 
-export const UserWrapper = styled(Link)`
+export const UserContainer = styled(Link)`
 
 	>span {
 		padding-left: 10px;
@@ -49,7 +50,7 @@ export const Avatar = styled.img`
 	border-radius: 50%;
 `
 
-export const BtnWrapper = styled.div`
+export const BtnContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	max-width: 300px;

@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Wrapper } from './style'
+import { Container } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import navRouteMap from 'common/navRouteMap'
@@ -16,8 +16,8 @@ export default function Operation(props) {
 	}, [])
 
 	return (
-		<Wrapper isShow={isShow}>
+		<Container isShow={isShow}>
 			222211111
-    </Wrapper>
+    </Container>
 	)
 }

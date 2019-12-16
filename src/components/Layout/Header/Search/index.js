@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Wrapper, ResultWrapper } from './style'
+import { Container, ResultContainer } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import SearchInput from './SearchInput'
 import Hot from './Hot'
@@ -50,7 +50,7 @@ export default function Search() {
 	}
 
 	return (
-		<Wrapper>
+		<Container>
 			<SearchInput isFocus={isFocus} inputValue={inputValue}
 				handleInput={handleInput} 
 				handleFocus={handleFocus} 
@@ -58,15 +58,15 @@ export default function Search() {
 			/>
 			{
 				isShowPannel
-				? <ResultWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-					{
-						inputValue === ''
-						? <Hot handleClickTag={handleClickTag} />
-						: <Suggest />
-					}
-				</ResultWrapper>
-	    	: null
+					? <ResultContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+						{
+							inputValue === ''
+							? <Hot handleClickTag={handleClickTag} />
+							: <Suggest />
+						}
+					</ResultContainer>
+		    	: null
 			}
-		</Wrapper>
+		</Container>
 	)
 }

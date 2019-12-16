@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Wrapper, PlaylistBtn, PlayOrderBtn } from './style'
+import { Container, PlaylistBtn, PlayOrderBtn } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import navRouteMap from 'common/navRouteMap'
@@ -25,9 +25,9 @@ export default function Operation() {
 	}
 
 	return (
-		<Wrapper>
+		<Container>
 			<PlayOrderBtn type="retweet" />
 			<PlaylistBtn type="menu" onClick={handleChangePlaylistStatus} />
-    </Wrapper>
+    </Container>
 	)
 }

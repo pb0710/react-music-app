@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Wrapper, Pic, DescWrapper, Title, Duration } from './style'
+import { Container, Pic, DescContainer, Title, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import navRouteMap from 'common/navRouteMap'
@@ -38,21 +38,21 @@ export default function Playing() {
 	}, [songId])
 
 	return (
-		<Wrapper>
+		<Container>
 			{
 				songsDetail.map(item => item.id === songId && (
 					<>
 						<Pic src={item.al.picUrl} alt={item.name} />
-						<DescWrapper>
+						<DescContainer>
 							<Title >
 								<span>{item.name}</span>
 								<Link to="/page/singer">{' - ' + item.ar[0].name}</Link>
 							</Title>
 							<Duration>{`${'01:23'} / ${'03:45'}`}</Duration>
-						</DescWrapper>
+						</DescContainer>
 					</>
 				))
 			}
-    </Wrapper>
+    </Container>
 	)
 }

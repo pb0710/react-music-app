@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper, Title,TagWrapper, Tag } from './style'
+import { Container, Title,TagContainer, Tag } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import * as api from 'api'
 import {Button} from 'antd'
@@ -23,13 +23,13 @@ export default function Hot(props) {
 	}, [])
 
 	return (
-		<Wrapper>
+		<Container>
 			<Title>热门搜索</Title>
-			<TagWrapper>
+			<TagContainer>
 				{
 					hots.map(hot => <Tag key={hot.first} onClick={() => props.handleClickTag(hot.first)}>{hot.first}</Tag>)
 				}
-			</TagWrapper>
-		</Wrapper>
+			</TagContainer>
+		</Container>
 	)
 }

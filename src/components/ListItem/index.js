@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Wrapper, Title, OperationWrapper, Play, Collect, Download, Singer, Album, Duration } from './style'
+import { Container, Title, OperationContainer, Play, Collect, Download, Singer, Album, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import pagesRouteMap from 'common/pagesRouteMap'
 
@@ -22,12 +22,12 @@ export default function ListItem(props) {
   }
 
   return (
-    <Wrapper 
+    <Container 
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <Title>{name}</Title>
-        <OperationWrapper>
+        <OperationContainer>
           {
             isFocus 
               ? 
@@ -48,10 +48,10 @@ export default function ListItem(props) {
                 </>
               : null
           }
-        </OperationWrapper>
+        </OperationContainer>
       <Singer to="/page/singer">{singerName}</Singer>
       <Album to="/page/album">{ablumName}</Album>
       <Duration>3:45</Duration>
-    </Wrapper>
+    </Container>
   )
 }

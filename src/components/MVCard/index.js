@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper, CountWrapper, PicWrapper, Pic, DescWrapper } from './style'
+import { Container, CountContainer, PicContainer, PlayIcon, Pic, DescContainer } from './style'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
@@ -17,21 +17,19 @@ export default function MVCard(props) {
 	}
 
 	return (
-		<Wrapper>
-			<CountWrapper>
+		<Container>
+			<CountContainer>
 				<Icon type="customer-service" />
 				<span>{playCount}</span>
-			</CountWrapper>
-			<PicWrapper  onClick={() => handleRouteToSongslist(id)}>
-				<Link to={pagesRouteMap.mv}>
-					<Icon type="play-circle" />
-					<Pic src={picUrl} alt={name} />
-				</Link>
-			</PicWrapper>
-      <DescWrapper onClick={() => handleRouteToSongslist(id)}>
+			</CountContainer>
+			<PicContainer to={pagesRouteMap.mv} onClick={() => handleRouteToSongslist(id)}>
+				<PlayIcon type="play-circle" />
+				<Pic src={picUrl} alt={name} />
+			</PicContainer>
+      <DescContainer onClick={() => handleRouteToSongslist(id)}>
       	<Link to={pagesRouteMap.mv} >{name}</Link>
       	<Link to={pagesRouteMap.singer} >{artistName}</Link>
-      </DescWrapper>
-    </Wrapper>
+      </DescContainer>
+    </Container>
 	)
 }

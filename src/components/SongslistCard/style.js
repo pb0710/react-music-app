@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled(Link)`
+export const Container = styled(Link)`
 	display: flex;
 	flex-direction: column;
 	width: calc(6vw + 90px);
@@ -10,18 +11,18 @@ export const Wrapper = styled(Link)`
 	margin-bottom: 10px;
 	position: relative;
 	cursor: default;
-	i {
-		color: rgba(255, 255, 255, .8);
-	}
 `
 
-export const CountWrapper = styled.div`
+export const CountContainer = styled.div`
 	position: absolute;
 	top: 4px;
 	right: 4px;
-	color: #fff;
 	z-index: 9;
 
+	>i {
+	 color: #fff;
+	}
+	
 	>span {
 		margin: 0 4px;
 		font-size: 13px;
@@ -29,7 +30,7 @@ export const CountWrapper = styled.div`
 	}
 `
 
-export const PicWrapper = styled.div`
+export const PicContainer = styled.div`
 	width: 100%;
 	height: calc(100% - 50px);
 	border-radius: 4px;
@@ -63,9 +64,7 @@ export const Title = styled.span`
 	font-size: 13px;
 	padding: 8px 0 0 2px;
 	color: #555;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	${global.textOverflowEllipsis}
 	cursor: pointer;
 
 	:hover {

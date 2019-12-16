@@ -1,20 +1,21 @@
 import styled from 'styled-components'
 import { Icon } from 'antd'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: right;
 	width: 400px;
 `
 
-export const PlaylistBtn = styled(Icon)
-`
+const OperationBtn = styled(Icon)`
 	font-size: 18px;
 `
 
-export const PlayOrderBtn = styled(Icon)
+export const PlaylistBtn = styled(OperationBtn)`
+	
 `
-	font-size: 18px;
+
+export const PlayOrderBtn = styled(OperationBtn)`
+	
 `

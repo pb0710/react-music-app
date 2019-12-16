@@ -1,12 +1,13 @@
 import styled, { keyframes } from 'styled-components'
+import global from 'styles/globalStyle'
 
-const show = keyframes `
+const show = keyframes`
   0% {
     transform: scale(.8, 0);
   }
 
   60% {
-    transform: scale(.95, 1.1);
+    transform: scale(.95, 1.05);
   }
 
   100% {
@@ -14,9 +15,8 @@ const show = keyframes `
   }
 `
 
-export const Wrapper = styled.div `
+export const Container = styled.div`
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
 	width: 300px;
 	height: 100%;
@@ -24,23 +24,18 @@ export const Wrapper = styled.div `
 	top: 0;
 `
 
-export const ResultWrapper = styled.div `
+export const ResultContainer = styled.div`
 	width: 100%;
-	min-height: 60px;
+	min-height: 120px;
 	position: absolute;
 	top: 44px;
 	left: 100px;
 	background: #fff;
-	border: 1px solid #eee;
+	border: ${global.normalBorder};
 	border-radius: 10px;
-	-webkit-box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, .1);
-	box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, .1);
+	box-shadow: ${global.boxShadow};
 	overflow: hidden;
 	cursor: default;
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	-ms-transform-origin: 0 0;
-	-o-transform-origin: 0 0;
 	transform-origin: 0 0;
 	animation: ${show} .4s ease-out;
 `

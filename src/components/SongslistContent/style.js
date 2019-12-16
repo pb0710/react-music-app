@@ -1,16 +1,15 @@
 import styled from 'styled-components'
-import { List } from 'antd'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div `
-	width: calc(40vw + 434px);
+export const Container = styled.div`
+	width: ${global.containerWidth};
 	margin: 0 auto;
 	margin-bottom: 54px;
 	font-size: 13px;
 `
 
-export const FirstItem = styled.div `
+export const FirstItemContainer = styled.div`
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
 	height: 40px;
@@ -18,27 +17,26 @@ export const FirstItem = styled.div `
 	border-radius: 4px;
 `
 
-export const Title = styled.div `
-	padding-left: 10px;
+const Item = styled.div`
 	width: 240px;
 	color: #444;
 `
 
-export const OperationWrapper = styled.div `
+export const Title = styled(Item)`
+	padding-left: 10px;
+`
+
+export const OperationContainer = styled.div`
 	width: calc(100% - 700px);
 `
 
-export const Singer = styled.div `
-	width: 240px;
-	color: #444;
+export const Singer = styled(Item)`
 `
 
-export const Album = styled.div `
-	width: 240px;
-	color: #444;
+export const Album = styled(Item)`
 `
 
-export const Duration = styled.div `
+export const Duration = styled.div`
 	width: 80px;
 	padding-right: 10px;
 `

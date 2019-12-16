@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div`	
+export const Container = styled.div`	
 	width: 100%;
 	height: 30px;
 `
@@ -16,17 +17,15 @@ export const Input = styled.input`
 		: `
 			width: 200px;
 			background: #fafafa;
-			border: 1px solid #eee;
-			text-align: center
+			border: ${global.normalBorder};
+			text-align: center;
 		`
 	}
-	height: 30px;
+	height: 100%;
 	padding: 0 10px;
 	margin-left: 100px;
 	outline: none;
 	border-radius: 15px;
 	font-size: 13px;
-	-webkit-transition: all .4s;
-	-o-transition: all .4s;
 	transition: all .4s;
 `

@@ -1,21 +1,27 @@
 import styled from 'styled-components'
+import global from 'styles/globalStyle'
+import { Link } from 'react-router-dom'
+import { Icon } from 'antd'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: top;
-	width: calc(8vw + 120px);
-	height: calc(8vw + 70px);
+	width: calc(9vw + 90px);
+	height: calc(6vw + 110px);
 	position: relative;
 	cursor: default;
 `
 
-export const CountWrapper = styled.div`
+export const CountContainer = styled.div`
 	position: absolute;
 	top: 0;
 	right: 4px;
-	color: #fff;
 	z-index: 9;
+
+	>i {
+		color: #fff;
+	}
 
 	>span {
 		margin: 0 4px;
@@ -24,29 +30,15 @@ export const CountWrapper = styled.div`
 	}
 `
 
-export const PicWrapper = styled.div`
+export const PicContainer = styled(Link)`
 	width: 100%;
 	height: calc(100% - 50px);
 	border-radius: 4px;
 	overflow: hidden;
 
-	i {
-		width: 120px;
-		height: 120px;
-		font-size: 120px;
-		position: absolute;
-		left: calc(50% - 60px);
-		top: calc(50% - 85px);
-		color: rgba(255, 255, 255, .8);
-		z-index: 9;
-		opacity: 0;
-		transition: transform .2s ease-out;
-	}
-
 	:hover {
 		img {
 			filter: brightness(80%);
-			transform: scale(1);
 		}
 
 		i {
@@ -56,6 +48,18 @@ export const PicWrapper = styled.div`
 	}
 `
 
+export const PlayIcon = styled(Icon)`
+	width: 120px;
+	height: 120px;
+	font-size: 120px;
+	position: absolute;
+	left: calc(50% - 60px);
+	top: calc(50% - 85px);
+	z-index: 9;
+	opacity: 0;
+	transition: transform .2s ease-out;
+`
+
 export const Pic = styled.img`
 	width: 100%;
 	height: 100%;
@@ -63,7 +67,7 @@ export const Pic = styled.img`
 	transition: all .2s ease-out;
 `
 
-export const DescWrapper = styled.div`
+export const DescContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -74,9 +78,7 @@ export const DescWrapper = styled.div`
 
 	>a {
 		width: 100%;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
+		${global.textOverflowEllipsis}
 		color: #777;
 
 		:first-child {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper, FirstItem, Title, OperationWrapper,Singer, Album, Duration } from './style'
+import { Container, FirstItemContainer, Title, OperationContainer, Singer, Album, Duration } from './style'
 import { Link } from 'react-router-dom'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import pagesRouteMap from 'common/pagesRouteMap'
@@ -34,22 +34,24 @@ export default function SongslistContent(props) {
   }
 
   return (
-    <Wrapper>
-      <FirstItem>
+    <Container>
+      <FirstItemContainer>
         <Title>歌曲名</Title>
-        <OperationWrapper/>
+        <OperationContainer />
         <Singer>歌手</Singer>
         <Album>专辑</Album>
         <Duration>时长</Duration>
-      </FirstItem>
+      </FirstItemContainer>
       {
-        tracks.map(item => <ListItem 
-          item={item} 
-          key={item.id} 
-          handlePlayMusic={handlePlayMusic} 
-          handleCollect={handleCollect} 
-        />)
+        tracks.map(item => (
+          <ListItem 
+            item={item} 
+            key={item.id} 
+            handlePlayMusic={handlePlayMusic} 
+            handleCollect={handleCollect} 
+          />
+        ))
       }
-    </Wrapper>
+    </Container>
   )
 }

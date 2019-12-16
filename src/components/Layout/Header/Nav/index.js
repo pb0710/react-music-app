@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper } from './style'
+import { Container } from './style'
 import { Menu } from 'antd'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
@@ -28,7 +28,7 @@ export default function Nav() {
 	}
 
 	return (
-		<Wrapper onClick={handleClick} selectedKeys={current} mode="horizontal">
+		<Container onClick={handleClick} selectedKeys={current} mode="horizontal">
     	{
     		navRouteMap.map(item => 
     			item.value === selected && item.child.map(child => (
@@ -38,6 +38,6 @@ export default function Nav() {
     			))
     		)
     	}
-    </Wrapper>
+    </Container>
 	)
 }

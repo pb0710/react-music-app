@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Menu } from 'antd'
 
-export const Wrapper = styled(Menu)`
+export const Container = styled(Menu)`
 
 	&.ant-menu {
 		border: none;

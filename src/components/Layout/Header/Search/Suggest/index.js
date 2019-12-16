@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper, Search, ResultWrapper, SortWrapper, Item, Title } from './style'
+import { Container, Search, ResultContainer, SortContainer, Item, Title } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 
 export default function Suggest() {
@@ -17,10 +17,10 @@ export default function Suggest() {
 	}
 
 	return (
-		<Wrapper>
+		<Container>
 			{
 				order && order.map(sort => (
-					<SortWrapper key={sort}>
+					<SortContainer key={sort}>
 						<Title>{sortName[sort]}</Title>
 						{
 							searchSuggest[sort].map(item => (
@@ -29,9 +29,9 @@ export default function Suggest() {
 								</Item>
 							))
 						}
-					</SortWrapper>
+					</SortContainer>
 				))
 			}
-		</Wrapper>
+		</Container>
 	)
 }

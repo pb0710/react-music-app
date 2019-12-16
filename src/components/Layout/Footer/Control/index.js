@@ -1,5 +1,5 @@
 import React, { Refs, useState, useEffect } from 'react'
-import { Wrapper, PlayWrapper, Pause, Play, Previous, Next, Love, Volume } from './style'
+import { Container, PlayContainer, Pause, Play, Previous, Next, Love, Volume } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
 import navRouteMap from 'common/navRouteMap'
@@ -44,7 +44,7 @@ export default function Control() {
 	}
 
 	return (
-		<Wrapper>
+		<Container>
 			{
 				songsURL.map(item => item.id === songId && (
 					<>
@@ -53,7 +53,7 @@ export default function Control() {
 				))
 			}
 			<Love type="heart" />
-			<PlayWrapper>
+			<PlayContainer>
 				<Previous type="icon-shangyishou" />
 				{
 					isPlaying 
@@ -61,8 +61,8 @@ export default function Control() {
 						: <Play type="icon-bofang1" onClick={handlePlay} />
 				}
 				<Next type="icon-xiayishou" />
-			</PlayWrapper>
+			</PlayContainer>
 			<Volume type="sound" />
-    </Wrapper>
+    </Container>
 	)
 }

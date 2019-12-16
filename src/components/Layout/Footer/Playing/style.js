@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
 	width: 400px;
 	cursor: default;
@@ -13,7 +14,7 @@ export const Pic = styled.img`
 	border-radius: 4px;
 `
 
-export const DescWrapper = styled.div`
+export const DescContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
@@ -21,9 +22,7 @@ export const DescWrapper = styled.div`
 
 export const Title = styled.div`
 	max-width: 300px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	${global.textOverflowEllipsis}
 
 	>span {
 		line-height: 30px;

@@ -1,15 +1,15 @@
 import styled from 'styled-components'
+import global from 'styles/globalStyle'
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: calc(40vw + 434px);
+	width: 100%;
 	min-height: 100px;
-	margin: 20px auto;
 	position: relative;
 `
 
-export const TitleWrapper = styled.div`
+export const TitleContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: left;
@@ -24,13 +24,9 @@ export const Title = styled.span`
 	font-weight: bolder;
 	margin-right: 4px;
 	color: #555;
-
-	:hover {
-		color: #333;
-	}
 `
 
-export const ChildrenWrapper = styled.div`
+export const ChildrenContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;

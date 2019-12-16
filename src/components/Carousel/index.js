@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Img, Wrapper, IndicatorWrapper, Indicator, BtnWrapper, Left, Right } from './style'
+import { Img, Container, IndicatorContainer, Indicator, BtnContainer, LeftBtn, RightBtn } from './style'
 import * as utils from 'utils'
 
 export default function Carousel(props) {
@@ -92,7 +92,7 @@ export default function Carousel(props) {
   ))
 
   const indicatorRender = () => (
-    <IndicatorWrapper>
+    <IndicatorContainer>
       {
         position.map(item => 
           <Indicator 
@@ -102,24 +102,24 @@ export default function Carousel(props) {
           />
         )
       }
-    </IndicatorWrapper>
+    </IndicatorContainer>
   )
 
   const btnRender = () => (
-    <BtnWrapper hide={!isFocus}>
-      <Left onClick={handleForward} type="left"/>
-      <Right onClick={handleReturn} type="right"/>
-    </BtnWrapper>
+    <BtnContainer hide={!isFocus}>
+      <LeftBtn onClick={handleForward} type="left"/>
+      <RightBtn onClick={handleReturn} type="right"/>
+    </BtnContainer>
   )
 
   return (
-    <Wrapper 
+    <Container 
       onMouseEnter={handleMouseEnter} 
       onMouseLeave={handleMouseLeave}
     >
       {bannerRender()}
       {btnRender()}
       {indicatorRender()}
-    </Wrapper>
+    </Container>
   )
 }

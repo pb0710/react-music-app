@@ -22,21 +22,139 @@
 │   ├── manifest.json
 │   └── robots.txt
 ├── src
-│   ├── Layout
-│   │   ├── index.js
-│   │   └── store
-│   │       ├── index.js
-│   │       └── reducer.js
 │   ├── api
+│   │   ├── fetch.js
+│   │   └── index.js
 │   ├── common
-│   │   └── globalStyle.js
+│   │   ├── config.js
+│   │   ├── navRouteMap.js
+│   │   └── pagesRouteMap.js
 │   ├── components
+│   │   ├── Carousel
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   ├── Layout
+│   │   │   ├── Content
+│   │   │   │   ├── index.js
+│   │   │   │   ├── store
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── reducer.js
+│   │   │   │   └── style.js
+│   │   │   ├── Footer
+│   │   │   │   ├── Control
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── store
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   └── reducer.js
+│   │   │   │   │   └── style.js
+│   │   │   │   ├── Operation
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── store
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   └── reducer.js
+│   │   │   │   │   └── style.js
+│   │   │   │   ├── Playing
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── store
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   └── reducer.js
+│   │   │   │   │   └── style.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── store
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── reducer.js
+│   │   │   │   └── style.js
+│   │   │   ├── Header
+│   │   │   │   ├── Nav
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── style.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── store
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── reducer.js
+│   │   │   │   └── style.js
+│   │   │   ├── Sider
+│   │   │   │   ├── Drawer
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── style.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── store
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── reducer.js
+│   │   │   │   └── style.js
+│   │   │   ├── index.js
+│   │   │   ├── store
+│   │   │   │   ├── index.js
+│   │   │   │   ├── reducer.js
+│   │   │   │   └── saga
+│   │   │   │       ├── index.js
+│   │   │   │       └── searchSaga.js
+│   │   │   └── style.js
+│   │   ├── ListItem
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   ├── MVCard
+│   │   │   ├── index.js
+│   │   │   ├── store
+│   │   │   │   ├── index.js
+│   │   │   │   └── reducer.js
+│   │   │   └── style.js
+│   │   ├── NewSongCard
+│   │   │   ├── index.js
+│   │   │   ├── store
+│   │   │   │   ├── index.js
+│   │   │   │   └── reducer.js
+│   │   │   └── style.js
+│   │   ├── Pannel
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   ├── Search
+│   │   │   ├── Hot
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.js
+│   │   │   ├── SearchInput
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.js
+│   │   │   ├── Suggest
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.js
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   ├── SongslistCard
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   ├── SongslistContent
+│   │   │   ├── index.js
+│   │   │   └── style.js
+│   │   └── SongslistTitle
+│   │       ├── index.js
+│   │       └── style.js
 │   ├── index.js
-│   └── saga
+│   ├── pages
+│   │   ├── Playlist
+│   │   │   ├── index.js
+│   │   │   ├── store
+│   │   │   │   ├── index.js
+│   │   │   │   └── reducer.js
+│   │   │   └── style.js
+│   │   ├── Recommend
+│   │   │   ├── index.js
+│   │   │   └── store
+│   │   │       ├── index.js
+│   │   │       └── reducer.js
+│   │   └── Songslist
+│   │       ├── index.js
+│   │       └── store
+│   │           ├── index.js
+│   │           └── reducer.js
+│   ├── styles
+│   │   ├── globalStyle.js
+│   │   └── icon.js
+│   └── utils
 │       └── index.js
 └── yarn.lock
 
-8 directories, 17 files
+47 directories, 96 files
 ```
 
 ### 模块

@@ -1,10 +1,12 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-export const Wrapper = styled.div`
+import { Link } from 'react-router-dom'
+import global from 'styles/globalStyle'
+
+export const Container = styled.div`
 	width: 100%;
 `
 
-export const SortWrapper = styled.div`
+export const SortContainer = styled.div`
 	width: 100%;
 	:first-of-type {
 		>div {
@@ -15,30 +17,26 @@ export const SortWrapper = styled.div`
 
 export const Title = styled.div`
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
-	height: 30px;
+	height: 36px;
 	background: #fafafa;
 	padding: 0 10px;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	border-top: ${global.normalBorder};
+	border-bottom: ${global.normalBorder};
 	font-size: 14px;
 	color: #777;
 `
 
 export const Item = styled(Link)`
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
 	height: 30px;
 	padding: 0 20px;
 	>span {
 		font-size: 13px;
-		white-space: nowrap;  
-		text-overflow: ellipsis; 
-		overflow: hidden;
+		${global.textOverflowEllipsis}
 	}
   :hover {
   	background: #eee;

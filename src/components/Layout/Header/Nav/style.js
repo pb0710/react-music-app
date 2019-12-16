@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import {Menu} from 'antd'
+import { Menu } from 'antd'
 
-export const Wrapper = styled(Menu)`
+export const Container = styled(Menu)`
 	height: 100%;
 
 	&.ant-menu {
@@ -9,4 +9,3 @@ export const Wrapper = styled(Menu)`
 		background: rgba(255, 255, 255, 0);
 	}
 `
-

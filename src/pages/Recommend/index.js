@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import { Container } from './style'
 import { Button, List } from 'antd'
 import * as api from 'api'
 import { useMappedState, useDispatch } from 'redux-react-hook';
@@ -64,7 +65,7 @@ export default function Recommend() {
 	)
 
 	return (
-		<div>
+		<Container>
       <Carousel getCarousel={api.fetchCarousel} autoScrollInterval={6000} />
       {
       	renderPannel({
@@ -88,6 +89,6 @@ export default function Recommend() {
       	})
       }
       <Pannel />
-    </div>
+    </Container>
 	)
 }
