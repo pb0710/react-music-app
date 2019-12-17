@@ -28,3 +28,33 @@ export const Mask = styled.div`
 	opacity: 0;
 	z-index: 99999;
 `
+
+export const PlaylistItem = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	height: 40px;
+	background: ${props => props.current && 'rgba(180, 180, 180, .1);'};
+
+	:hover {
+		background: rgba(100, 100, 100, .1);
+	}
+`
+
+const Item = styled.div`
+	height: 100%;
+	line-height: 40px;
+	font-size: 13px;
+	${global.textOverflowEllipsis}
+`
+
+export const SongName = styled(Item)`
+	width: 180px;
+	color: #444;
+`
+
+export const Singer = styled(Item)`
+	width: 120px;
+	color: #777;
+`

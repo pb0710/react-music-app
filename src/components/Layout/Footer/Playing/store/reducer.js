@@ -5,8 +5,7 @@ const defaultState = {
 export default (state = defaultState, action) => {
 	const { type, payload } = action
 	switch (type) {
-		case 'PLAY_MUSIC':
-			console.log('id', payload)
+		case 'test':
 			return { ...state, id: payload }
 		default:
 			return state

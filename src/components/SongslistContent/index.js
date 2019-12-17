@@ -13,7 +13,7 @@ export default function SongslistContent(props) {
 
   const handlePlayMusic = id => {
     dispatch({
-      type: 'PLAY_MUSIC',
+      type: 'ADD_MUSIC_TO_PLAYLIST',
       payload: id
     })
   }

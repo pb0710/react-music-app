@@ -7,51 +7,28 @@ import * as api from 'api'
 
 export default function Playing() {
 	const dispatch = useDispatch()
-	const { playingId } = useMappedState(state => ({
-		playingId: state.footer.playing.id
+	const { playlistContent } = useMappedState(state => ({
+		playlistContent: state.content.playlist.entities
 	}))
 
-	const [songsURL, setSongsURL] = useState([])
-	const [songsDetail, setSongsDetail] = useState([])
-
-	const getPlayingMusic = async () => {
-
-		try {
-			const { songs } = await api.fetchSongsDetail(playingId)
-			setSongsDetail(songs)
-			console.log('获取歌曲详情成功', songs)
-		} catch (e) {
-			console.error('获取歌曲详情成功', e);
-		}
-
-		try {
-			const { data } = await api.fetchSongsUrl(playingId)
-			setSongsURL(data)
-			console.log('获取歌曲URL成功', data)
-		} catch (e) {
-			console.error('获取歌曲URL成功', e);
-		}
-	}
-
-	useEffect(() => {
-		playingId && getPlayingMusic()
-	}, [playingId])
+	// 播放列表第一首歌为当前	正在播放的歌曲
+	const playingMusicDetail = playlistContent[0]
+	const playingId = playingMusicDetail && playingMusicDetail.id
 
 	return (
 		<Container>
 			{
-				songsDetail.map(item => item.id === playingId && (
+				playingMusicDetail &&
 					<>
-						<Pic src={item.al.picUrl} alt={item.name} />
+						<Pic src={playingMusicDetail.al.picUrl} alt={playingMusicDetail.name} />
 						<DescContainer>
 							<Title >
-								<span>{item.name}</span>
-								<Link to="/page/singer">{' - ' + item.ar[0].name}</Link>
+								<span>{playingMusicDetail.name}</span>
+								<Link to="/page/singer">{' - ' + playingMusicDetail.ar[0].name}</Link>
 							</Title>
 							<Duration>{`${'01:23'} / ${'03:45'}`}</Duration>
 						</DescContainer>
 					</>
-				))
 			}
     </Container>
 	)

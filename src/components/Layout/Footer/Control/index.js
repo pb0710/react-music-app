@@ -9,9 +9,13 @@ export default function Control() {
 	const audioRef = React.createRef()
 
 	const dispatch = useDispatch()
-	const { playingId } = useMappedState(state => ({
-		playingId: state.footer.playing.id
+	const { playlistContent } = useMappedState(state => ({
+		playlistContent: state.content.playlist.entities
 	}))
+
+	// 播放列表第一首歌为当前	正在播放的歌曲
+	const playingId = playlistContent[0] && playlistContent[0].id
+
 	const [songsURL, setSongsURL] = useState([])
 	const [isPlaying, setIsPlaying] = useState(false)
 
@@ -32,13 +36,11 @@ export default function Control() {
 	}, [playingId])
 
 	const handlePause = () => {
-		console.log(audioRef)
 		setIsPlaying(false)
 		audioRef.current.pause()
 	}
 
 	const handlePlay = () => {
-		console.log(audioRef)
 		setIsPlaying(true)
 		audioRef.current.play()
 	}

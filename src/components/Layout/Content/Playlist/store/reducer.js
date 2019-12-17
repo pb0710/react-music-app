@@ -1,5 +1,6 @@
 const defaultState = {
-	isShow: false
+	isShow: false,
+	entities: []
 }
 
 export default (state = defaultState, action) => {
@@ -7,6 +8,13 @@ export default (state = defaultState, action) => {
 	switch (type) {
 		case 'CHANGE_PLAYLIST_STATUS':
 			return { ...state, isShow: payload }
+		case 'UPDATE_PLAYLIST':
+			return { 
+				...state, 
+				entities: [payload, ...state.entities] 
+			}
+		case 'CLEAR_PLAYLIST':
+			return { ...state, entities: [] }
 		default:
 			return state
 	}
