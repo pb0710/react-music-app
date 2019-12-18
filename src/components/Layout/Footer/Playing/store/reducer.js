@@ -5,7 +5,7 @@ const defaultState = {
 export default (state = defaultState, action) => {
 	const { type, payload } = action
 	switch (type) {
-		case 'test':
+		case 'UPDATE_PLAYING_ID':
 			return { ...state, id: payload }
 		default:
 			return state

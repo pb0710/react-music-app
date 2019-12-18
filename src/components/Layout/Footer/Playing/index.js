@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useMemo } from 'react'
 import { Container, Pic, DescContainer, Title, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
@@ -7,24 +7,28 @@ import * as api from 'api'
 
 export default function Playing() {
 	const dispatch = useDispatch()
-	const { playlistContent } = useMappedState(state => ({
-		playlistContent: state.content.playlist.entities
+	const { playlistContent, playingId } = useMappedState(state => ({
+		playlistContent: state.content.playlist.entities,
+		playingId: state.footer.playing.id
 	}))
 
-	// 播放列表第一首歌为当前	正在播放的歌曲
-	const playingMusicDetail = playlistContent[0]
-	const playingId = playingMusicDetail && playingMusicDetail.id
+	const currentPlayingMusicDetail = useMemo(() => {
+
+		for (let item of playlistContent) {
+			return item.id === playingId && item
+		}
+	}, [playingId])
 
 	return (
 		<Container>
 			{
-				playingMusicDetail &&
+				currentPlayingMusicDetail && 
 					<>
-						<Pic src={playingMusicDetail.al.picUrl} alt={playingMusicDetail.name} />
+						<Pic src={currentPlayingMusicDetail.al.picUrl} alt={currentPlayingMusicDetail.name} />
 						<DescContainer>
-							<Title >
-								<span>{playingMusicDetail.name}</span>
-								<Link to="/page/singer">{' - ' + playingMusicDetail.ar[0].name}</Link>
+							<Title>
+								<span>{currentPlayingMusicDetail.name}</span>
+								<Link to="/page/singer">{' - ' + currentPlayingMusicDetail.ar[0].name}</Link>
 							</Title>
 							<Duration>{`${'01:23'} / ${'03:45'}`}</Duration>
 						</DescContainer>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Mask, PlaylistItem, SongName, Singer } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import { Link, useHistory } from 'react-router-dom'
@@ -7,8 +7,8 @@ import * as api from 'api'
 
 export default function Operation(props) {
 	const dispatch = useDispatch()
-	const { playlistIsShow, playlistContent } = useMappedState(state => ({
-		playlistIsShow: state.content.playlist.isShow,
+	const { isPlaylistShow, playlistContent } = useMappedState(state => ({
+		isPlaylistShow: state.content.playlist.isShow,
 		playlistContent: state.content.playlist.entities
 	}))
 
@@ -21,7 +21,7 @@ export default function Operation(props) {
 
 	return (
 		<>
-			<Container isShow={playlistIsShow}>
+			<Container isShow={isPlaylistShow}>
 				{
 					playlistContent.length > 0 && playlistContent.map(item => (
 						<PlaylistItem current={item.id === playlistContent[0].id}>
@@ -31,7 +31,7 @@ export default function Operation(props) {
 					))
 				}
 	    </Container>
-	    {playlistIsShow && <Mask onClick={handleRemoveMask} />}
+	    {isPlaylistShow && <Mask onClick={handleRemoveMask} />}
     </>
 	)
 }

@@ -9,21 +9,19 @@ export default function Control() {
 	const audioRef = React.createRef()
 
 	const dispatch = useDispatch()
-	const { playlistContent } = useMappedState(state => ({
-		playlistContent: state.content.playlist.entities
+	const { playlistContent, playingId } = useMappedState(state => ({
+		playlistContent: state.content.playlist.entities,
+		playingId: state.footer.playing.id
 	}))
 
-	// 播放列表第一首歌为当前	正在播放的歌曲
-	const playingId = playlistContent[0] && playlistContent[0].id
-
-	const [songsURL, setSongsURL] = useState([])
+	const [musicURL, setMusicURL] = useState([])
 	const [isPlaying, setIsPlaying] = useState(false)
 
+	// 音乐detail里面没有url，只能通过ID从接口获取
 	const getPlayingMusic = async () => {
-
 		try {
 			const { data } = await api.fetchSongsUrl(playingId)
-			setSongsURL(data)
+			setMusicURL(data[0])
 			console.log('获取歌曲URL成功', data)
 		} catch (e) {
 			console.error('获取歌曲URL失败', e);
@@ -48,11 +46,7 @@ export default function Control() {
 	return (
 		<Container>
 			{
-				songsURL.map(item => item.id === playingId && (
-					<>
-						<audio ref={audioRef} src={item.url} autoPlay={true}></audio>
-					</>
-				))
+				musicURL.id === playingId && <audio key={musicURL.id} ref={audioRef} autoPlay={true} src={musicURL.url} />
 			}
 			<Love type="heart" />
 			<PlayContainer>

@@ -1,12 +1,12 @@
-import { all, fork, put, takeEvery, takeLatest, delay, select, call } from 'redux-saga/effects'
+import { all, fork, put, takeEvery, takeLatest, delay, select } from 'redux-saga/effects'
 import * as api from 'api'
 
-function* updateKeywordsSaga(keywords) {
+function* updateKeywords(keywords) {
 	yield delay(200)
 	yield searchSaga(keywords)
 }
 
-function* searchSaga(keywords) {
+function* search(keywords) {
 	if (keywords === '') return
 	const { result } = yield api.fetchSearchSuggest(keywords)
 	// 判断是空对象，清空result
@@ -24,23 +24,23 @@ function* searchSaga(keywords) {
 
 // -------------------------------------watch--------------------------------------------------------
 
-function* updateKeywordsWatch() {
+function* updateKeywordsSaga() {
 	// 防抖
-	yield takeLatest("FETCH_SEARCH_RESULT", action => updateKeywordsSaga(action.payload))
+	yield takeLatest("FETCH_SEARCH_RESULT", action => updateKeywords(action.payload))
 }
 
-function* selectHotSearchWatch() {
-	yield takeEvery("SELECT_HOT_SEARCH", action => searchSaga(action.payload))
+function* selectHotSearchSaga() {
+	yield takeEvery("SELECT_HOT_SEARCH", action => search(action.payload))
 }
 
-function* searchWatch() {
-	yield takeEvery("SEARCH", action => searchSaga(action.payload))
+function* searchSaga() {
+	yield takeEvery("SEARCH", action => search(action.payload))
 }
 
 export default function* () {
 	yield all([
-		updateKeywordsWatch(),
-		selectHotSearchWatch(),
-  	searchWatch()
+		updateKeywordsSaga(),
+		selectHotSearchSaga(),
+  	searchSaga()
   ])
 }

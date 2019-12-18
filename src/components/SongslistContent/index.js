@@ -7,19 +7,21 @@ import ListItem from '@/ListItem'
 
 export default function SongslistContent(props) {
   const dispatch = useDispatch()
+  const { playingId } = useMappedState(state => ({
+    playingId: state.footer.playing.id
+  }))
 
   if (props.dataSource.length === 0) return null
   const { tracks } = props.dataSource
 
   const handlePlayMusic = id => {
-    dispatch({
+    id !== playingId && dispatch({
       type: 'ADD_MUSIC_TO_PLAYLIST',
       payload: id
     })
   }
 
   const handleCollect = id => {
-    console.log('love')
     dispatch({
       type: 'COLLECT_MUSIC',
       payload: id
@@ -45,7 +47,7 @@ export default function SongslistContent(props) {
       {
         tracks.map(item => (
           <ListItem 
-            item={item} 
+            dataSource={item} 
             key={item.id} 
             handlePlayMusic={handlePlayMusic} 
             handleCollect={handleCollect} 

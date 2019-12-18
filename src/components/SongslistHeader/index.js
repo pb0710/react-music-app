@@ -13,7 +13,7 @@ export default function SongslistHeader(props) {
 
 	return (
 		<Container>
-			<Pic src={coverImgUrl} alt="name"/>
+			<Pic src={coverImgUrl} alt="name" />
 			<DescContainer>
 				<span>{name}</span>
 				<UserContainer to='/page/user'>

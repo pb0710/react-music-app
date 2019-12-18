@@ -14,6 +14,7 @@ export default function Carousel(props) {
     try {
       const { banners } = await getCarousel()
       setBanners(banners)
+      setPosition(utils.fillArraySequence(banners.length))
       console.log('获取轮播图成功', banners)
     } catch (e) {
       console.error('获取轮播图失败', e);
@@ -23,10 +24,6 @@ export default function Carousel(props) {
   useEffect(() => {
     getRemotePic()
   }, [])
-
-  useEffect(() => {
-    setPosition(utils.fillArraySequence(banners.length))
-  }, [banners])
 
   useEffect(() => {
     isFocus 

@@ -8,13 +8,13 @@ export default (state = defaultState, action) => {
 	switch (type) {
 		case 'CHANGE_PLAYLIST_STATUS':
 			return { ...state, isShow: payload }
+
 		case 'UPDATE_PLAYLIST':
-			return { 
-				...state, 
-				entities: [payload, ...state.entities] 
-			}
+			return { ...state, entities: payload }
+
 		case 'CLEAR_PLAYLIST':
 			return { ...state, entities: [] }
+
 		default:
 			return state
 	}

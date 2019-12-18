@@ -19,6 +19,7 @@ export const Container = styled(Glass)`
 	transform: translateX(${props => props.isShow ? 0 : playlistWidth});
 `
 
+// 遮罩层
 export const Mask = styled.div`
 	position: fixed;
 	top: 0;
@@ -35,26 +36,26 @@ export const PlaylistItem = styled.div`
 	justify-content: space-around;
 	width: 100%;
 	height: 40px;
-	background: ${props => props.current && 'rgba(180, 180, 180, .1);'};
+	background: ${props => props.current && 'rgba(180, 180, 180, .1)'};
 
 	:hover {
 		background: rgba(100, 100, 100, .1);
 	}
 `
 
-const Item = styled.div`
+const Sub = styled.div`
 	height: 100%;
 	line-height: 40px;
 	font-size: 13px;
 	${global.textOverflowEllipsis}
 `
 
-export const SongName = styled(Item)`
+export const SongName = styled(Sub)`
 	width: 180px;
 	color: #444;
 `
 
-export const Singer = styled(Item)`
+export const Singer = styled(Sub)`
 	width: 120px;
 	color: #777;
 `

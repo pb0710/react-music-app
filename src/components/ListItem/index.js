@@ -8,7 +8,7 @@ export default function ListItem(props) {
   const { playingId } = useMappedState(state => ({
     playingId: state.footer.playing.id
   }))
-  const { id, name, al: { name: ablumName }, ar } = props.item
+  const { id, name, al: { name: ablumName }, ar } = props.dataSource
   const { id: singerId, name: singerName } = ar[0]
 
   const [isFocus, setIsFocus] = useState(false)
@@ -42,7 +42,6 @@ export default function ListItem(props) {
                     type="heart"
                     selected={playingId === id}
                     onClick={() => props.handleCollect(id)} 
-                    theme={playingId === id ? 'filled' : ''}
                   />
                   <Download type="cloud-download" />
                 </>
