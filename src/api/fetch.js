@@ -24,8 +24,8 @@ instance.interceptors.response.use(
 		}
 	},
 	err => {
-		const { status, statusText } = err.response
-		console.error(`被拦截，响应状态：${status}，${statusText}`)
+		const { status, statusText, data } = err.response
+		console.error(`被拦截，响应状态：${status}，${statusText}，${data.msg}`)
 		return Promise.reject(err)
 	})
 

@@ -37,6 +37,6 @@ export const Album = styled(Item)`
 `
 
 export const Duration = styled.div`
-	width: 80px;
+	width: 60px;
 	padding-right: 10px;
 `

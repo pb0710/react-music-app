@@ -13,14 +13,15 @@ export default function Playing() {
 	}))
 
 	const currentPlayingMusicDetail = useMemo(() => {
-
+		
 		for (let item of playlistContent) {
-			return item.id === playingId && item
+			if (item.id === playingId) return item
 		}
 	}, [playingId])
 
 	return (
 		<Container>
+			{console.log('currentPlayingMusicDetail', currentPlayingMusicDetail)}
 			{
 				currentPlayingMusicDetail && 
 					<>

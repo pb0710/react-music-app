@@ -1,30 +1,40 @@
-import { all, fork, put, takeEvery, takeLatest, delay, select, call } from 'redux-saga/effects'
+import { all, fork, put, takeEvery, takeLatest, delay, select } from 'redux-saga/effects'
 import * as api from 'api'
 
-function* addToPlaylist(...ids) {
+function* updatePlaylistAndPlayingId(songs, playingId) {
 	const state = yield select()
 	const playlistContent = state.content.playlist.entities
 
-	try {
-		const { songs } = yield api.fetchSongsDetail(...ids)
+	// 新增的音乐放到列表首位，并去重
+	const playlistNoRepeat = playlistContent.filter(item => songs.filter(song => song.id !== item.id).length > 0)
 
-		// 新增的音乐放到列表首位，并去重
-		const playlistNoRepeat = playlistContent.filter(item => songs.filter(song => song.id !== item.id).length > 0)
-		console.log('new', [...songs, ...playlistNoRepeat])
+	yield put({
+		type: 'UPDATE_PLAYLIST',
+		payload: [...songs, ...playlistNoRepeat]
+	})
 
-		yield put({
-			type: 'UPDATE_PLAYLIST',
-			payload: [...songs, ...playlistNoRepeat]
-		})
+	// 播放列表首位的音乐默认正在播放
+	yield put({
+		type: 'UPDATE_PLAYING_ID',
+		payload: playingId
+	})
+}
 
-		// 播放列表首位的音乐默认正在播放
-		yield put({
-			type: 'UPDATE_PLAYING_ID',
-			payload: ids[0]
-		})
+function* addToPlaylist(arg) {
 
-	} catch (e) {
-		console.error(e);
+	// 区分添加到播放列表歌曲 是单曲还是批量的歌单
+	if (Array.isArray(arg)) {
+		yield updatePlaylistAndPlayingId(arg, arg[0].id)
+
+	} else {
+
+		try {
+			const { songs } = yield api.fetchSongsDetail(arg)
+			yield updatePlaylistAndPlayingId(songs, arg)
+
+		} catch (e) {
+			console.error(e);
+		}
 	}
 }
 

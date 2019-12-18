@@ -15,6 +15,7 @@ export const Container = styled(Glass)`
 	border-left: ${global.transparentBorder};
 	box-shadow: -1px 0px 3px 0 rgba(0, 0, 0, .1);
 	z-index: 999999;
+	overflow: auto;
 	transition: transform .4s ease-out;
 	transform: translateX(${props => props.isShow ? 0 : playlistWidth});
 `
@@ -28,6 +29,48 @@ export const Mask = styled.div`
 	height: 100vh;
 	opacity: 0;
 	z-index: 99999;
+`
+
+export const PlaylistHeader = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	border-top: ${global.transparentBorder};
+`
+
+export const Total = styled.span`
+	width: 280px;
+	font-size: 13px;
+	text-align: center;
+
+	>span {
+		color: #1890ff;
+	}
+`
+
+const OperationBtn = styled(Icon)`
+	display: flex;
+	align-items: center;
+	width: 60px;
+	font-size: 18px;
+`
+
+export const CollectAllMusic = styled(OperationBtn)`
+	
+`
+
+export const RemoveAllMusic = styled(OperationBtn)`
+	
+`
+
+export const PlaylistContent = styled.div`
+	width: 100%;
+	height: calc(100% - 60px);
+	overflow: auto;
 `
 
 export const PlaylistItem = styled.div`
