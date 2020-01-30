@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from 'styles/preSetStyle'
 import { StoreContext } from 'redux-react-hook'
-import store from '@/Layout/store'
+import store from 'store'
 import Layout from '@/Layout'
 
 function App() {

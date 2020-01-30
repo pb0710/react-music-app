@@ -6,7 +6,7 @@ import fetch from './fetch'
  * @param  {String} options.password [密码]
  * @return {Object}                  
  */
-export const userLogin = ({ phone, password }) => fetch({
+export const userLogin = ({ phone, password } = {}) => fetch({
 	url: '/login/cellphone',
 	method: 'post',
 	data: { phone, password }
@@ -25,7 +25,7 @@ export const fetchCarousel = () => fetch({
  * @param  {Number} options.limit [数据长度]
  * @return {Array} [30]           
  */
-export const fetchRecommendSongslist = ({ limit = 10 }) => fetch({
+export const fetchRecommendSongslist = ({ limit = 10 } = {}) => fetch({
 	url: '/personalized',
 	params: { limit }
 })
@@ -59,7 +59,7 @@ export const fetchTodayRecommendResource = () => fetch({
  * @param  {Number} options.id [歌单ID]
  * @return {Object}           
  */
-export const fetchSongslistDetail = ({ id }) => fetch({
+export const fetchSongslistDetail = ({ id } = {}) => fetch({
 	url: '/playlist/detail',
 	params: { id }
 })

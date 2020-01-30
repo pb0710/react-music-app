@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import Content from './Content'
-import Sider from './Sider'
-import Footer from './Footer'
+import Header from 'layout/Header'
+import Content from 'layout/Content'
+import Sider from 'layout/Sider'
+import Footer from 'layout/Footer'
 import { Container, BodyContainer } from './style'
 
 export default function Layout() {

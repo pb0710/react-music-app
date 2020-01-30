@@ -8,8 +8,7 @@ function resolve(dir) {
 module.exports = override(
 	// alias
 	addWebpackAlias({
-		'@': resolve('src/components'),
-		'#': resolve('src/pages')
+		'@': resolve('src/components')
 	}),
 	// antd按需加载
 	fixBabelImports('import', {

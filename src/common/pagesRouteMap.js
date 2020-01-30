@@ -1,6 +1,6 @@
 export default {
-	songslist: '/page/songslist',
-	song: '/page/song',
-	mv: '/page/mv',
-	singer: '/page/singer',
+	SONGSLIST: '/page/songslist',
+	SONG: '/page/song',
+	MV: '/page/mv',
+	SINGER: '/page/singer',
 }

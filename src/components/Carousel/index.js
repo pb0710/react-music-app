@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Img, Container, IndicatorContainer, Indicator, BtnContainer, LeftBtn, RightBtn } from './style'
 import * as utils from 'utils'
+import * as api from 'api'
 
 export default function Carousel(props) {
-  const { getCarousel, autoScrollInterval } = props
+  const { autoScrollInterval } = props
   let scrollTimeout
 
   const [banners, setBanners] = useState([])
@@ -12,10 +13,9 @@ export default function Carousel(props) {
 
   const getRemotePic = async () => {
     try {
-      const { banners } = await getCarousel()
+      const { banners } = await api.fetchCarousel()
       setBanners(banners)
       setPosition(utils.fillArraySequence(banners.length))
-      console.log('获取轮播图成功', banners)
     } catch (e) {
       console.error('获取轮播图失败', e);
     }
@@ -58,12 +58,8 @@ export default function Carousel(props) {
     setPosition(newPosition)
   }
 
-  const handleMouseEnter = () => {
-    setIsFocus(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsFocus(false)
+  const handleMouseMove = () => {
+    setIsFocus(prev => !prev)
   }
 
   const handleSelect = position => {
@@ -111,8 +107,8 @@ export default function Carousel(props) {
 
   return (
     <Container 
-      onMouseEnter={handleMouseEnter} 
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseMove} 
+      onMouseLeave={handleMouseMove}
     >
       {bannerRender()}
       {btnRender()}

@@ -1,17 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Container, Title, OperationContainer, Play, Collect, Download, Singer, Album, Duration } from './style'
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import pagesRouteMap from 'common/pagesRouteMap'
+import { timeFormat } from 'utils'
 
 export default function ListItem(props) {
   const dispatch = useDispatch()
   const { playingId } = useMappedState(state => ({
-    playingId: state.footer.playing.id
+    playingId: state.audio.playingId
   }))
-  const { id, name, al: { name: ablumName }, ar } = props.dataSource
-  const { id: singerId, name: singerName } = ar[0]
+
+  const { 
+    id, 
+    name, 
+    al: { 
+      name: ablumName 
+    }, 
+    ar: singerDetail, 
+    dt: duration 
+  } = props.dataSource
+
+  const { 
+    id: singerId, 
+    name: singerName 
+  } = singerDetail[0]
 
   const [isFocus, setIsFocus] = useState(false)
+
+  const songDuration = useMemo(() => timeFormat(duration / 1000), [duration])
 
   const handleMouseEnter = () => {
     setIsFocus(true)
@@ -50,7 +66,7 @@ export default function ListItem(props) {
         </OperationContainer>
       <Singer to="/page/singer">{singerName}</Singer>
       <Album to="/page/album">{ablumName}</Album>
-      <Duration>3:45</Duration>
+      <Duration>{songDuration}</Duration>
     </Container>
   )
 }
